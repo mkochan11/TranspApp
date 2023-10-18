@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ASL4KpTXGnxflgjwjnQb7nkHiL2sw2pVyEeXL3lsK2WwUeGoHcGPWDG7bfa3WwWizOjEFnzcl5Y5tf4O/mhtZA==",
+  "success": true,
+  "projectFilePath": "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\ApplicationCore.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\x\\.nuget\\packages\\ardalis.specification\\7.0.0\\ardalis.specification.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

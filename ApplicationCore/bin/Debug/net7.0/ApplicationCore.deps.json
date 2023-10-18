@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "ApplicationCore/1.0.0": {
+        "dependencies": {
+          "Ardalis.Specification": "7.0.0"
+        },
+        "runtime": {
+          "ApplicationCore.dll": {}
+        }
+      },
+      "Ardalis.Specification/7.0.0": {
+        "runtime": {
+          "lib/net6.0/Ardalis.Specification.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ApplicationCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ardalis.Specification/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e2bd6AN7V0FGOgmCq+srEPmz03PEIkESoyG/QKHxX76ezI13COvi/2WX09f1wLFKdex9gVqxCtNSBH9pvYFUVQ==",
+      "path": "ardalis.specification/7.0.0",
+      "hashPath": "ardalis.specification.7.0.0.nupkg.sha512"
+    }
+  }
+}

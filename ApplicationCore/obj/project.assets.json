@@ -1,0 +1,109 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "Ardalis.Specification/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Ardalis.Specification.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Ardalis.Specification.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ardalis.Specification/7.0.0": {
+      "sha512": "e2bd6AN7V0FGOgmCq+srEPmz03PEIkESoyG/QKHxX76ezI13COvi/2WX09f1wLFKdex9gVqxCtNSBH9pvYFUVQ==",
+      "type": "package",
+      "path": "ardalis.specification/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ardalis.specification.7.0.0.nupkg.sha512",
+        "ardalis.specification.nuspec",
+        "icon.png",
+        "lib/net6.0/Ardalis.Specification.dll",
+        "lib/net6.0/Ardalis.Specification.pdb",
+        "lib/net6.0/Ardalis.Specification.xml",
+        "lib/netstandard2.0/Ardalis.Specification.dll",
+        "lib/netstandard2.0/Ardalis.Specification.pdb",
+        "lib/netstandard2.0/Ardalis.Specification.xml"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "Ardalis.Specification >= 7.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\x\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\ApplicationCore.csproj",
+      "projectName": "ApplicationCore",
+      "projectPath": "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\ApplicationCore.csproj",
+      "packagesPath": "C:\\Users\\x\\.nuget\\packages\\",
+      "outputPath": "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\x\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "dependencies": {
+          "Ardalis.Specification": {
+            "target": "Package",
+            "version": "[7.0.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

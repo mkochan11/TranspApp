@@ -1,0 +1,17 @@
+E:\.NetWebApps\TranspApp\Infrastructure\bin\Debug\net7.0\Infrastructure.deps.json
+E:\.NetWebApps\TranspApp\Infrastructure\bin\Debug\net7.0\Infrastructure.runtimeconfig.json
+E:\.NetWebApps\TranspApp\Infrastructure\bin\Debug\net7.0\Infrastructure.dll
+E:\.NetWebApps\TranspApp\Infrastructure\bin\Debug\net7.0\Infrastructure.pdb
+E:\.NetWebApps\TranspApp\Infrastructure\bin\Debug\net7.0\ApplicationCore.dll
+E:\.NetWebApps\TranspApp\Infrastructure\bin\Debug\net7.0\ApplicationCore.pdb
+E:\.NetWebApps\TranspApp\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.AssemblyReference.cache
+E:\.NetWebApps\TranspApp\Infrastructure\obj\Debug\net7.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\.NetWebApps\TranspApp\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfoInputs.cache
+E:\.NetWebApps\TranspApp\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfo.cs
+E:\.NetWebApps\TranspApp\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CoreCompileInputs.cache
+E:\.NetWebApps\TranspApp\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CopyComplete
+E:\.NetWebApps\TranspApp\Infrastructure\obj\Debug\net7.0\Infrastructure.dll
+E:\.NetWebApps\TranspApp\Infrastructure\obj\Debug\net7.0\refint\Infrastructure.dll
+E:\.NetWebApps\TranspApp\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
+E:\.NetWebApps\TranspApp\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
+E:\.NetWebApps\TranspApp\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll

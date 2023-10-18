@@ -1,0 +1,12 @@
+E:\.NetWebApps\TranspApp\ApplicationCore\bin\Debug\net7.0\ApplicationCore.deps.json
+E:\.NetWebApps\TranspApp\ApplicationCore\bin\Debug\net7.0\ApplicationCore.dll
+E:\.NetWebApps\TranspApp\ApplicationCore\bin\Debug\net7.0\ApplicationCore.pdb
+E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.csproj.AssemblyReference.cache
+E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.AssemblyInfoInputs.cache
+E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.AssemblyInfo.cs
+E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.csproj.CoreCompileInputs.cache
+E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.dll
+E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\refint\ApplicationCore.dll
+E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.pdb
+E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\ref\ApplicationCore.dll
