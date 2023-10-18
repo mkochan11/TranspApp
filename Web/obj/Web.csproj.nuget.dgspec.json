@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\.NetWebApps\\TranspApp\\Web\\Web.csproj": {}
+    "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Web\\Web.csproj": {}
   },
   "projects": {
-    "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\ApplicationCore.csproj": {
+    "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\ApplicationCore\\ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\ApplicationCore.csproj",
+        "projectUniqueName": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\ApplicationCore\\ApplicationCore.csproj",
         "projectName": "ApplicationCore",
-        "projectPath": "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\ApplicationCore.csproj",
-        "packagesPath": "C:\\Users\\x\\.nuget\\packages\\",
-        "outputPath": "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\obj\\",
+        "projectPath": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\ApplicationCore\\ApplicationCore.csproj",
+        "packagesPath": "C:\\Users\\kocha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\x\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kocha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,21 +61,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\.NetWebApps\\TranspApp\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\.NetWebApps\\TranspApp\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "E:\\.NetWebApps\\TranspApp\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\x\\.nuget\\packages\\",
-        "outputPath": "E:\\.NetWebApps\\TranspApp\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\kocha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\x\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kocha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,8 +89,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\ApplicationCore.csproj": {
-                "projectPath": "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\ApplicationCore.csproj"
+              "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\ApplicationCore\\ApplicationCore.csproj": {
+                "projectPath": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\ApplicationCore\\ApplicationCore.csproj"
               }
             }
           }
@@ -109,29 +109,25 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[7.0.12, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.10, )"
             }
           },
           "imports": [
@@ -150,21 +146,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\.NetWebApps\\TranspApp\\Web\\Web.csproj": {
+    "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\.NetWebApps\\TranspApp\\Web\\Web.csproj",
+        "projectUniqueName": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Web\\Web.csproj",
         "projectName": "Web",
-        "projectPath": "E:\\.NetWebApps\\TranspApp\\Web\\Web.csproj",
-        "packagesPath": "C:\\Users\\x\\.nuget\\packages\\",
-        "outputPath": "E:\\.NetWebApps\\TranspApp\\Web\\obj\\",
+        "projectPath": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Web\\Web.csproj",
+        "packagesPath": "C:\\Users\\kocha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\x\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kocha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -172,18 +168,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\ApplicationCore.csproj": {
-                "projectPath": "E:\\.NetWebApps\\TranspApp\\ApplicationCore\\ApplicationCore.csproj"
+              "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\ApplicationCore\\ApplicationCore.csproj": {
+                "projectPath": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\ApplicationCore\\ApplicationCore.csproj"
               },
-              "E:\\.NetWebApps\\TranspApp\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "E:\\.NetWebApps\\TranspApp\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -236,7 +231,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

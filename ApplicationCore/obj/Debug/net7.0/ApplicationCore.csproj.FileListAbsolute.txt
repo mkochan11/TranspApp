@@ -10,3 +10,15 @@ E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.dll
 E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\refint\ApplicationCore.dll
 E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.pdb
 E:\.NetWebApps\TranspApp\ApplicationCore\obj\Debug\net7.0\ref\ApplicationCore.dll
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\bin\Debug\net7.0\ApplicationCore.deps.json
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\bin\Debug\net7.0\ApplicationCore.dll
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\bin\Debug\net7.0\ApplicationCore.pdb
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.csproj.AssemblyReference.cache
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.AssemblyInfoInputs.cache
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.AssemblyInfo.cs
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.dll
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\obj\Debug\net7.0\refint\ApplicationCore.dll
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\obj\Debug\net7.0\ApplicationCore.pdb
+C:\Users\kocha\source\repos\TranspApp\TranspApp\ApplicationCore\obj\Debug\net7.0\ref\ApplicationCore.dll

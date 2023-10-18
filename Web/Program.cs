@@ -13,7 +13,7 @@ builder.Services.AddCoreServices(builder.Configuration);
 builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TranspAppCS")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YogaCS")));
 
 var app = builder.Build();
 
