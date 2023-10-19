@@ -21,6 +21,7 @@ namespace Infrastructure.Data
 
                 if(!await appDbContext.VehicleTypes.AnyAsync())
                 {
+                  
                     await appDbContext.VehicleTypes.AddRangeAsync(
                         GetPreconfiguredVehicleTypes());
 
@@ -45,12 +46,12 @@ namespace Infrastructure.Data
         {
             return new List<VehicleType>
             {
-                new("Pick-Up"),
-                new("Van"),
-                new("Cargo van"),
-                new("Small truck"),
-                new("Truck"),
-                new("Heavy truck")
+                new("Pick-Up", 100),
+                new("Van", 200),
+                new("Cargo van", 300),
+                new("Small truck", 400),
+                new("Truck", 500),
+                new("Heavy truck", 1000)
             };
         }
 

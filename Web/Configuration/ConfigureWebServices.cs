@@ -10,6 +10,8 @@ namespace Web.Configuration
         {
             services.AddScoped<IFleetViewModelService, FleetViewModelService>();
             services.AddScoped<IFleetItemViewModelService, FleetItemViewModelService>();
+            services.AddScoped<IPricingItemViewModelService, PricingItemViewModelService>();
+            services.AddScoped<IPricingViewModelService, PricingViewModelService>();
 
             return services;
         }

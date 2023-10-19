@@ -1,12 +1,25 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Web.Interfaces;
+using Web.ViewModels;
 
 namespace Web.Pages.Pricing
 {
     public class IndexModel : PageModel
     {
-        public void OnGet()
+        private readonly IPricingViewModelService _pricingViewModelService;
+
+        public IndexModel(IPricingViewModelService pricingViewModelService)
         {
+            _pricingViewModelService = pricingViewModelService;
+        }
+
+        public required PricingIndexViewModel PricingModel { get; set; } = new PricingIndexViewModel();
+
+
+        public async Task OnGet(PricingIndexViewModel pricingModel)
+        {
+            PricingModel = await _pricingViewModelService.GetPricingItems();
         }
     }
 }

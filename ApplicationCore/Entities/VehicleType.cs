@@ -12,9 +12,11 @@ namespace ApplicationCore.Entities
     public class VehicleType : BaseEntity, IAggregateRoot
     {
         public string Type { get; set; }
-        public VehicleType(string type)
+        public float PricePer100km { get; set; }
+        public VehicleType(string type, float pricePer100km)
         {
             Type = type;
+            PricePer100km = pricePer100km;
         }
     }
 }
