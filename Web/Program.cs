@@ -35,9 +35,14 @@ using (var scope = app.Services.CreateScope())
     {
         var appDbContext = scopedProvider.GetRequiredService<AppDbContext>();
         await AppDbContextSeed.SeedAsync(appDbContext);
+
+        var userManager = scopedProvider.GetRequiredService<UserManager<ApplicationUser>>();
+        var indentityContext = scopedProvider.GetRequiredService<AppIdentityDbContext>();
+        await AppIdentityDbContextSeed.SeedAsync(indentityContext, userManager);
+
     }catch(Exception ex)
     {
-        
+        app.Logger.LogError(ex, "An error occurred while seeding DB");
     }
 }
 
