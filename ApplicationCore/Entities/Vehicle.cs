@@ -38,5 +38,6 @@ namespace ApplicationCore.Entities
             //PictureUri = pictureUri;
         }
 
+
     }
 }

@@ -1,0 +1,57 @@
+﻿@page
+
+@{
+    ViewData["Title"] = "Manage Fleet";
+    @model IndexModel
+    int i = 1;
+}
+
+<div class="text-center">
+    <h1 class="display-5">Manage your Fleet</h1>
+</div>
+
+<div class="container">
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Year of production</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Capacity</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var fleetItem in Model.FleetModel.FleetItems)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <partial name="_vehicle" for="@fleetItem" />
+                        <td>
+                            <form method="post" asp-page-handler="Edit" asp-route-id="@fleetItem.Id">
+                                <button class="btn btn-warning">Edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@fleetItem.Id">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
+        <div class="align-self-center">
+            <form method="post" asp-page-handler="Add">
+                <button class="btn btn-success">Add</button>
+            </form>
+        </div>              
+</div>
+    

@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@using Infrastructure.Identity;
+@inject SignInManager<ApplicationUser> SignInManager;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,7 +16,14 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Home</a>
+                @if ((Context.User.HasClaim("IsAdmin", bool.FalseString)) || !(SignInManager.IsSignedIn(User)))
+                {
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">Home</a>
+                }
+                else
+                {
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">Admin Panel</a>
+                }
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

@@ -92,6 +92,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Admin/Manage/Fleet/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlXEZsZWV0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Admin/Manage/Fleet/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlXEZsZWV0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Admin/Manage/Fleet/_vehicle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlXEZsZWV0XF92ZWhpY2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -114,10 +126,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Pricing/_price.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpY2luZ1xfcHJpY2UuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Shared/_LoginPartial.cshtml]

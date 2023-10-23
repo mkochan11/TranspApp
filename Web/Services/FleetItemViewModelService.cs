@@ -16,12 +16,5 @@ namespace Web.Services
         {
             _fleetItemRepository = fleetItemRepository;
         }
-
-        public async Task UpdateFleetItem(FleetItemViewModel viewModel)
-        {
-            //var existingFleetItem = await _fleetItemRepository.GetByIdAsync(viewModel.Id);
-
-            //Guard.Against.Null(existingFleetItem, nameof(existingFleetItem));
-        }
     }
 }

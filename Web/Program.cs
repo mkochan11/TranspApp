@@ -26,6 +26,11 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
            .AddEntityFrameworkStores<AppIdentityDbContext>();
                            //.AddDefaultTokenProviders();
 */
+builder.Services.AddAuthorization(options =>
+        options.AddPolicy("Admin", policy =>
+            policy.RequireAuthenticatedUser()
+                .RequireClaim("IsAdmin", bool.TrueString)));
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())

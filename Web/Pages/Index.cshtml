@@ -10,11 +10,23 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    ApplicationUser user = await UserManager.GetUserAsync(User);
-    <div class="text-center">
-        <h2 class="display-4">Welcome @user.FirstName</h2>
-        <p>To place an order select Order in the navigation bar.</p>
-    </div>
+    @if(User.HasClaim("isAdmin", bool.TrueString))
+    {
+        <div class="text-center">
+            <h2 class="display-4">Admin Panel</h2>
+            <h4>Manage your Company</h4>
+            <p><a  asp-area="" asp-page="/Admin/Manage/Fleet/Index">Manage Fleet</a></p>
+            <p><a  asp-area="" asp-page="/Pricing/Index">Manage Pricing</a></p>
+        </div>
+    }
+    else
+    {
+        ApplicationUser user = await UserManager.GetUserAsync(User);
+        <div class="text-center">
+            <h2 class="display-4">Welcome @user.FirstName</h2>
+            <p>To place an order select Order in the navigation bar.</p>
+        </div>
+    }
 }
 else
 {

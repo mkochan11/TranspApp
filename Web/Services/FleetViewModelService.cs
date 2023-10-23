@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Entities;
+﻿
+using ApplicationCore.Entities;
 using ApplicationCore.Interfaces;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Web.Interfaces;
@@ -27,7 +28,7 @@ namespace Web.Services
 
                 FleetItems = vehiclesOnPage.Select(i => new FleetItemViewModel
                 {
-                    //Id = i.Id,
+                    Id = i.Id,
                     Model = i.Model,
                     Brand = i.Brand,
                     ProductionYear = i.ProductionYear,
@@ -52,6 +53,15 @@ namespace Web.Services
             items.Insert(0, allItem);
 
             return items;
+        }
+
+        public async Task DeleteFleetItem(int Id)
+        {
+            Vehicle? vehicle = await _vehicleRepository.GetByIdAsync(Id);
+            if (vehicle != null)
+            {
+                await _vehicleRepository.DeleteAsync(vehicle);
+            }
         }
     }
 }
