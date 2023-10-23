@@ -1,10 +1,26 @@
 ﻿@page
+@using Microsoft.AspNetCore.Identity;
+@using Infrastructure.Identity;
+@inject SignInManager<ApplicationUser> SignInManager;
+@inject UserManager<ApplicationUser> UserManager;
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>To place an order Log in.</p>
-</div>
+@if (SignInManager.IsSignedIn(User))
+{
+    ApplicationUser user = await UserManager.GetUserAsync(User);
+    <div class="text-center">
+        <h2 class="display-4">Welcome @user.FirstName</h2>
+        <p>To place an order select Order in the navigation bar.</p>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>To place an order Login or Register.</p>
+    </div>
+}
+

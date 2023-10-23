@@ -1,13 +1,36 @@
-﻿
-<section class="col-lg-4 col-md-5 col-xs-12">
-    <div class="esh-identity">
-        <section class="esh-identity-section">
-            <div class="esh-identity-item">
-                <button class="btn btn-outline-success" type="submit">Login</button>
-                @*<a asp-area="" asp-page="/Fleet/Index" class="esh-identity-name esh-identity-name--upper">
-                Login
-                </a>*@
-            </div>
-        </section>
-    </div>
-</section>
+﻿@using Microsoft.AspNetCore.Identity
+@using Infrastructure.Identity
+@using Infrastructure.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User)){
+        <!--
+        ApplicationUser user = await UserManager.GetUserAsync(User);
+        @@if(user == null)
+        {
+            <li class="nav-item">Logged in as: null</li>
+        }
+        else
+        {
+            <li class="nav-item">Hi Michał</li>
+        }
+        <li> </li>
+        -->
+        <li class="nav-item"><a class="nav-link text-dark" id="myAccount" asp-area="Identity", asp-page="/Account/Manage/Index">My account</a></li>
+        <li class="nav-item">
+            <a class=" nav-link text-dark" id="logOut" asp-area="Identity" asp-page="/Account/Logout">Log out</a>
+        </li>
+        
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    }
+</ul>
