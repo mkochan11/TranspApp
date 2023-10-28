@@ -8,6 +8,7 @@ namespace Web.Interfaces
     {
         Task<FleetIndexViewModel> GetFleetItems();
         Task<IEnumerable<SelectListItem>> GetVehicleTypes();
+        Task<List<VehicleType>> GetVehicleTypesList();
         Task DeleteFleetItem(int Id);
     }
 }

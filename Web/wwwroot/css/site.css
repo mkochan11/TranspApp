@@ -20,3 +20,16 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}

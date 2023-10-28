@@ -63,5 +63,11 @@ namespace Web.Services
                 await _vehicleRepository.DeleteAsync(vehicle);
             }
         }
+
+        public async Task<List<VehicleType>> GetVehicleTypesList()
+        {
+            var vehicleTypes = await _vehicleTypeRepository.ListAsync();
+            return vehicleTypes;
+        }
     }
 }

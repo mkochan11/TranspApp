@@ -38,6 +38,8 @@ namespace ApplicationCore.Entities
             //PictureUri = pictureUri;
         }
 
+        public Vehicle() { }
+
 
     }
 }

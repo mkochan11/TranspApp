@@ -20,6 +20,14 @@
           "Infrastructure.dll": {}
         }
       },
+      "Ardalis.GuardClauses/4.1.1": {
+        "runtime": {
+          "lib/net7.0/Ardalis.GuardClauses.dll": {
+            "assemblyVersion": "4.1.1.0",
+            "fileVersion": "4.1.1.0"
+          }
+        }
+      },
       "Ardalis.Specification/7.0.0": {
         "runtime": {
           "lib/net6.0/Ardalis.Specification.dll": {
@@ -694,7 +702,9 @@
       },
       "ApplicationCore/1.0.0": {
         "dependencies": {
-          "Ardalis.Specification": "7.0.0"
+          "Ardalis.GuardClauses": "4.1.1",
+          "Ardalis.Specification": "7.0.0",
+          "Microsoft.Data.SqlClient": "5.1.1"
         },
         "runtime": {
           "ApplicationCore.dll": {}
@@ -707,6 +717,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Ardalis.GuardClauses/4.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+UcJ2s+gf2wMNrwadCaHZV2DMcGgBU1t22A+jm40P4MHQRLy9hcleGy5xdVWd4dXZPa5Vlp4TG5xU2rhoDYrBA==",
+      "path": "ardalis.guardclauses/4.1.1",
+      "hashPath": "ardalis.guardclauses.4.1.1.nupkg.sha512"
     },
     "Ardalis.Specification/7.0.0": {
       "type": "package",

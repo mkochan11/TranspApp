@@ -4,3 +4,56 @@
 }
 
 <h2>Add new vehicle</h2>
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" method="post">
+            <hr />
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Brand" class="form-control" autocomplete="brand" aria-required="true" placeholder="brand" />
+                <label asp-for="Input.Brand">Brand</label>
+                <span asp-validation-for="Input.Brand" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Model" class="form-control" autocomplete="model" aria-required="true" placeholder ="model" />
+                <label asp-for="Input.Model">Model</label>
+                <span asp-validation-for="Input.Model" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ProductionYear" class="form-control" autocomplete="yearOfProduction" aria-required="true" placeholder="year of production" />
+                <label asp-for="Input.ProductionYear">Production year</label>
+                <span asp-validation-for="Input.ProductionYear" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.RegistrationNumber" class="form-control" autocomplete="registrationNumber" aria-required="true" placeholder="registrationNumber" />
+                <label asp-for="Input.RegistrationNumber">Registration number</label>
+                <span asp-validation-for="Input.RegistrationNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.VehicleType" list="vehicleTypes" class="form-control" autocomplete="vehicleType" />
+                <datalist id="vehicleTypes">
+                    @foreach (var vehicleType in Model.vehicleTypes)
+                    {
+                        <option value = "@vehicleType.Type"></option>
+                    }
+                </datalist>
+                <label asp-for="Input.VehicleType">Vehicle type</label>
+                <span asp-validation-for="Input.VehicleType" class="text-danger"></span>
+            </div>
+           <!--            <div class="form-floating mb-3">
+                <select asp-for="Input.VehicleType" asp-items="Model.vehicleTypes" class="form-control" autocomplete="vehicleType" aria-required="true" placeholder="vehicleType" />
+                <label asp-for="Input.VehicleType">Vehicle Type</label>
+                <span asp-validation-for="Input.VehicleType" class="text-danger"></span>
+            </div>
+             -->
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Capacity"  class="form-control" autocomplete="capacity" aria-required="true" placeholder="capacity" />
+                <label asp-for="Input.Capacity">Capacity</label>
+                <span asp-validation-for="Input.Capacity" class="text-danger"></span>
+            </div>
+            <button id="addVehicleSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Add Vehicle</button>
+        </form>
+
+    </div>
+</div>

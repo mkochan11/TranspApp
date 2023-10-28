@@ -2972,7 +2972,9 @@
       },
       "ApplicationCore/1.0.0": {
         "dependencies": {
-          "Ardalis.Specification": "7.0.0"
+          "Ardalis.GuardClauses": "4.1.1",
+          "Ardalis.Specification": "7.0.0",
+          "Microsoft.Data.SqlClient": "5.1.1"
         },
         "runtime": {
           "ApplicationCore.dll": {}
