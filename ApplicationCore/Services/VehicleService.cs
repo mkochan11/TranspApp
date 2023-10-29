@@ -1,12 +1,7 @@
 ﻿using ApplicationCore.Entities;
 using ApplicationCore.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ardalis.GuardClauses;
-using Microsoft.Data.SqlClient;
+using ApplicationCore.Validation.Results;
+using ApplicationCore.Validation.Errors;
 
 namespace ApplicationCore.Services
 {
@@ -14,22 +9,103 @@ namespace ApplicationCore.Services
     {
 
         private readonly IRepository<Vehicle> _vehicleRepository;
+        private readonly IRepository<VehicleType> _vehicleTypeRepository;
 
-        public VehicleService(IRepository<Vehicle> vehicleRepository)
+        public VehicleService(IRepository<Vehicle> vehicleRepository, IRepository<VehicleType> vehicleTypeRepository)
         {
             _vehicleRepository = vehicleRepository;
+            _vehicleTypeRepository = vehicleTypeRepository;
         }
-        public async Task AddVehicleAsync(Vehicle vehicle)
+        public async Task<ValidationResult> CreateAsync(Vehicle vehicle, string vehicleType)
         {
-            /*
-            Guard.Against.NullOrEmpty(vehicle.Brand, nameof(vehicle.Brand));
-            Guard.Against.NullOrEmpty(vehicle.Model, nameof(vehicle.Model));
-            Guard.Against.OutOfRange(vehicle.ProductionYear, nameof(vehicle.ProductionYear), 1900, 2023);
-            Guard.Against.OutOfRange(vehicle.Capacity, nameof(vehicle.Capacity), 0, 100000);
-            Guard.Against.NullOrEmpty(vehicle.RegistrationNumber, nameof(vehicle.RegistrationNumber));
-            Guard.Against.Null(vehicle.VehicleTypeId, nameof(vehicle.VehicleTypeId));
-            */
-            await _vehicleRepository.AddAsync(vehicle);
+            var checkRegistrationNumberResult = await CheckRegistrationNumberAsync(vehicle.RegistrationNumber);
+            var checkVehicleTypeResult = await CheckVehicleTypeAsync(vehicleType);
+
+            if (checkVehicleTypeResult.Succeeded)
+            {
+                vehicle.VehicleTypeId = await FindVehicleTypeID(vehicleType);
+                if(checkRegistrationNumberResult.Succeeded)
+                {
+                    await _vehicleRepository.AddAsync(vehicle);
+                    return ValidationResult.Success;
+                }
+                return ValidationResult.Failed(checkRegistrationNumberResult.Errors.ToArray());
+            }
+            else if (checkRegistrationNumberResult.Succeeded)
+            {
+                return ValidationResult.Failed(checkVehicleTypeResult.Errors.ToArray());
+            }
+            else
+            {
+                var errors = new List<ValidationError> { checkRegistrationNumberResult.Errors.First(), checkVehicleTypeResult.Errors.First() };
+                return ValidationResult.Failed(errors.ToArray());
+            }
+
+        }
+
+        public async Task<ValidationResult> UpdateAsync(Vehicle vehicle)
+        {
+            return new ValidationResult();
+        }
+
+        private async Task<ValidationResult> CheckRegistrationNumberAsync(string registrationNumber)
+        {
+            var vehicles = await _vehicleRepository.ListAsync();
+            bool numberExists = false;
+            foreach (var vehicle in vehicles)
+            {
+                if(vehicle.RegistrationNumber == registrationNumber)
+                {
+                    numberExists = true;
+                }
+            }
+            if (numberExists)
+            {
+                var error = new ValidationError
+                {
+                    Code = "registration_number_exists",
+                    Description = "Registration number already exists in database."
+                };
+                
+                var errors = new List<ValidationError> { error };
+                return ValidationResult.Failed(errors.ToArray());
+            }
+            return ValidationResult.Success;
+        }
+
+        private async Task<ValidationResult> CheckVehicleTypeAsync(string vehicleType)
+        {
+            var vehicleTypes = await _vehicleTypeRepository.ListAsync();
+            bool typeExists = false;
+            foreach (var vehicle in vehicleTypes)
+            {
+                if (vehicle.Type == vehicleType)
+                {
+                    typeExists = true;
+                }
+            }
+            if (!typeExists)
+            {
+                var error = new ValidationError
+                {
+                    Code = "vehicle_type_non_existent",
+                    Description = "Vehicle type not found."
+                };
+
+                var errors = new List<ValidationError> { error };
+                return ValidationResult.Failed(errors.ToArray());
+            }
+            return ValidationResult.Success;
+        }
+
+        private async Task<int> FindVehicleTypeID(string type)
+        {
+            var vehicleTypes = await _vehicleTypeRepository.ListAsync();
+            foreach (var vehicleType in vehicleTypes)
+            {
+                if (type == vehicleType.Type) return vehicleType.Id;
+            }
+            return 0;
         }
     }
 }

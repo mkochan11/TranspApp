@@ -28,7 +28,7 @@ namespace Web.Pages.Admin.Manage.Fleet
             
         }
 
-        public IEnumerable<VehicleType> vehicleTypes { get; set; }
+        public IEnumerable<VehicleType> vehicleTypes { get; set; } = new List<VehicleType>();
 
         public async Task OnGet()
         {
@@ -71,7 +71,7 @@ namespace Web.Pages.Admin.Manage.Fleet
             public required int Capacity { get; set; }
         }
 
-        public async Task<RedirectToPageResult> OnPost()
+        public async Task<IActionResult> OnPost()
         {
             vehicleTypes = await _fleetViewModelService.GetVehicleTypesList();
             
@@ -84,19 +84,39 @@ namespace Web.Pages.Admin.Manage.Fleet
                 newVehicle.ProductionYear = Input.ProductionYear;
                 newVehicle.RegistrationNumber = Input.RegistrationNumber;
                 newVehicle.Capacity = Input.Capacity;
-                newVehicle.VehicleTypeId = FindVehicleTypeID(Input.VehicleType);
                 newVehicle.PictureUri = null;
-                
 
-                await _vehicleRepository.AddAsync(newVehicle);
-                return RedirectToPage("./Index");
+                var result = await _vehicleService.CreateAsync(newVehicle, Input.VehicleType);
+                if (result.Succeeded)
+                {
+                    return RedirectToPage("./Index");
+                }
+                foreach(var error in result.Errors)
+                {
+
+                    if(error.Code == "registration_number_exists")
+                    {
+                        ModelState.AddModelError("Input.RegistrationNumber", error.Description);
+                    }
+                    if(error.Code == "vehicle_type_non_existent")
+                    {
+                        ModelState.AddModelError("Input.VehicleType", error.Description);
+                    }
+                }
+                return Page();
             }
             else
-            { 
-                
-                return RedirectToPage("./Create");
+            {
+                var errors = ModelState
+               .Where(x => x.Value.Errors.Count > 0)
+               .Select(x => new { x.Key, x.Value.Errors })
+               .ToList();
+                foreach (var error in errors)
+                {
+                    ModelState.AddModelError(error.Key, error.Errors[0].ErrorMessage);
+                }
+                return Page();
             }
-
         }
 
         private Vehicle CreateVehicle()
@@ -111,14 +131,6 @@ namespace Web.Pages.Admin.Manage.Fleet
             }
         }
 
-        private int FindVehicleTypeID(string type)
-        {
-
-            foreach (var vehicleType in vehicleTypes)
-            {
-                if (type == vehicleType.Type) return vehicleType.Id;
-            }
-            return 0;
-        }
+        
     }
 }

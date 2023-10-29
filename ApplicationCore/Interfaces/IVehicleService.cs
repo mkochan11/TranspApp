@@ -1,14 +1,13 @@
 ﻿using ApplicationCore.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ApplicationCore.Validation.Results;
 
 namespace ApplicationCore.Interfaces
 {
     public interface IVehicleService
     {
-        public Task AddVehicleAsync(Vehicle vehicle);
+        Task<ValidationResult> CreateAsync(Vehicle vehicle, string vehicleType);
+        Task<ValidationResult> UpdateAsync(Vehicle vehicle);
+        //Task<ValidationResult> CheckRegistrationNumberAsync(string registrationNumber);
+        //Task<ValidationResult> CheckVehicleTypeAsync(string vehicleType);
     }
 }

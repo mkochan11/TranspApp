@@ -8,6 +8,7 @@
     <div class="col-md-4">
         <form id="registerForm" method="post">
             <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Brand" class="form-control" autocomplete="brand" aria-required="true" placeholder="brand" />
                 <label asp-for="Input.Brand">Brand</label>
@@ -40,16 +41,10 @@
                 <label asp-for="Input.VehicleType">Vehicle type</label>
                 <span asp-validation-for="Input.VehicleType" class="text-danger"></span>
             </div>
-           <!--            <div class="form-floating mb-3">
-                <select asp-for="Input.VehicleType" asp-items="Model.vehicleTypes" class="form-control" autocomplete="vehicleType" aria-required="true" placeholder="vehicleType" />
-                <label asp-for="Input.VehicleType">Vehicle Type</label>
-                <span asp-validation-for="Input.VehicleType" class="text-danger"></span>
-            </div>
-             -->
 
             <div class="form-floating mb-3">
                 <input asp-for="Input.Capacity"  class="form-control" autocomplete="capacity" aria-required="true" placeholder="capacity" />
-                <label asp-for="Input.Capacity">Capacity</label>
+                <label asp-for="Input.Capacity">Capacity (kgs)</label>
                 <span asp-validation-for="Input.Capacity" class="text-danger"></span>
             </div>
             <button id="addVehicleSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Add Vehicle</button>

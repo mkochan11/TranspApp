@@ -2,12 +2,18 @@ using ApplicationCore.Entities;
 using Infrastructure.Data;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.EntityFrameworkCore;
 using Web.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+/*
+builder.Services.AddControllers(options =>
+{
+    options.ModelMetadataDetailsProviders.Add(new SystemTextJsonValidationMetadataProvider());
+});
+*/
 
 // Add services to the container.
 builder.Services.AddWebServices(builder.Configuration);
@@ -50,6 +56,7 @@ using (var scope = app.Services.CreateScope())
         app.Logger.LogError(ex, "An error occurred while seeding DB");
     }
 }
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
