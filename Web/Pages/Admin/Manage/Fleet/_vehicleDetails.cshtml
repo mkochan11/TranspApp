@@ -1,0 +1,16 @@
+﻿@using Web.ViewModels.Admin.ManageFleet
+@model DetailedItemViewModel
+<td></td>
+<td style="white-space : pre-line">Vehicle:  
+        Year of production: 
+        Registration number: 
+        Type: 
+        Capacity: 
+</td>
+<td style="white-space : pre-line">@Model.Brand @Model.Model
+    @Model.ProductionYear
+    @Model.RegistrationNumber
+    @Model.VehicleType.Type
+    @Model.Capacity kgs
+</td>
+

@@ -30,16 +30,35 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Fleet/Index">Fleet</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Pricing/Index">Pricing</a>
-                        </li>
+                        
                         @if(Context.User.HasClaim("IsAdmin", bool.FalseString))
                         {
                             <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Fleet/Index">Fleet</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Pricing/Index">Pricing</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="">Order</a>
+                            </li>
+                        }
+                        else
+                        {
+                            @* <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Manage/Fleet/Index">Manage Fleet</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Manage/Pricing/Index">Manage Pricing</a>
+                            </li> *@
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="" id="DropdownManage" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Manage
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="DropdownManage">
+                                    <a class="dropdown-item" asp-area="" asp-page="/Admin/Manage/Fleet/Index">Fleet</a>
+                                    <a class="dropdown-item" asp-area="" asp-page="/Admin/Manage/Fleet/Index">Pricing</a>
+                                </div>
                             </li>
                         }
                     </ul>

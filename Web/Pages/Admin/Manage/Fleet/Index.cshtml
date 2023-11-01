@@ -19,33 +19,49 @@
                     <th scope="col">Brand</th>
                     <th scope="col">Model</th>
                     <th scope="col">Year of production</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Capacity</th>
+                    <th scope="col">Details</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
 
                 </tr>
             </thead>
             <tbody>
-                @foreach (var fleetItem in Model.FleetModel.FleetItems)
+                @foreach (var vehicle in Model.FleetModel.Vehicles)
                 {
                     <tr>
                         <th scope="row">@i</th>
-                        <partial name="_vehicle" for="@fleetItem" />
+                        <partial name="_vehicle" for="@vehicle" />
+                    <td>
+                        <button class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#collapseDetails_@i">Details</button>
+                    </td>
                         <td>
-                            <form method="post" asp-page-handler="Edit" asp-route-id="@fleetItem.Id">
+                            <form method="post" asp-page-handler="Update" asp-route-id="@vehicle.Id">
                                 <button class="btn btn-warning">Edit</button>
                             </form>
                         </td>
+
                         <td>
-                            <form method="post" asp-page-handler="Delete" asp-route-id="@fleetItem.Id">
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@vehicle.Id">
                                 <button class="btn btn-danger">Delete</button>
                             </form>
                         </td>
-                    
-                    </tr>
-                    i++;
+
+                </tr>
+                var details = new ViewModels.Admin.ManageFleet.DetailedItemViewModel();
+                foreach (var detailedVehicle in Model.FleetModel.DetailedVehicles)
+                {
+                    if (vehicle.Id == detailedVehicle.Id){
+                        details = detailedVehicle;
+                        break;
+                    }
                 }
+                <tr class="collapse out" id="collapseDetails_@i">
+                    <partial name="_vehicleDetails" for="@details">
+                </tr>
+
+                
+                i++;
+            }
             </tbody>
         </table>
         <div>

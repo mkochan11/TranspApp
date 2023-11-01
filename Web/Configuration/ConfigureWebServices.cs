@@ -1,6 +1,8 @@
 ﻿using MediatR;
-using Web.Interfaces;
-using Web.Services;
+using Web.Interfaces.Admin.ManageFleet;
+using Web.Interfaces.User;
+using Web.Services.Admin.ManageFleet;
+using Web.Services.User;
 
 namespace Web.Configuration
 {
@@ -12,6 +14,7 @@ namespace Web.Configuration
             services.AddScoped<IFleetItemViewModelService, FleetItemViewModelService>();
             services.AddScoped<IPricingItemViewModelService, PricingItemViewModelService>();
             services.AddScoped<IPricingViewModelService, PricingViewModelService>();
+            services.AddScoped<IViewModelService, ViewModelService>();
 
             return services;
         }

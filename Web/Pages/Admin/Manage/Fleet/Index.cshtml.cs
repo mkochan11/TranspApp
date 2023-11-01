@@ -1,49 +1,51 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Runtime.CompilerServices;
-using Web.Interfaces;
-using Web.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Web.ViewModels.Admin.ManageFleet;
+using Web.Interfaces.Admin.ManageFleet;
+using System.Reflection.Metadata;
 
 namespace Web.Pages.Admin.Manage.Fleet
 {
     [Authorize]
     public class IndexModel : PageModel
     {
-        private readonly IFleetViewModelService _fleetViewModelService;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IViewModelService _viewModelService;
 
-        public IndexModel(IFleetViewModelService fleetViewModelService, SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+        public IndexModel(IViewModelService ViewModelService)
         {
-            _fleetViewModelService = fleetViewModelService;
-            _signInManager = signInManager;
-            _userManager = userManager;
+            _viewModelService = ViewModelService;
         }
-        public required FleetIndexViewModel FleetModel { get; set; } = new FleetIndexViewModel();
+        public required IndexViewModel FleetModel { get; set; } = new IndexViewModel();
 
-        public async Task OnGet(FleetIndexViewModel fleetModel)
+        public async Task OnGet(IndexViewModel fleetModel)
         {
-            FleetModel = await _fleetViewModelService.GetFleetItems();
+            FleetModel = await _viewModelService.GetIndexViewModel();
         }
 
         public async Task<RedirectToPageResult> OnPostDelete(int Id)
         {
-            await _fleetViewModelService.DeleteFleetItem(Id);
+            await _viewModelService.DeleteVehicle(Id);
             return RedirectToPage("./Index");
         }
 
-        //Do implementacji
-        public Task<RedirectToPageResult> OnPostEdit(int Id)
+        public Task<RedirectToPageResult> OnPostUpdate(int Id)
         {
             return Task.FromResult(RedirectToPage("./Index"));
         }
 
+
         public Task<RedirectToPageResult> OnPostAdd()
         {
             return Task.FromResult(RedirectToPage("./Create"));
+        }
+
+        public Task<PartialViewResult> OnPostDetails(int Id)
+        {
+            return Task.FromResult(Partial("_vehicleDetails+" + Id));
         }
     }
 }

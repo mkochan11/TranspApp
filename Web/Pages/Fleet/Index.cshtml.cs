@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Runtime.CompilerServices;
-using Web.Interfaces;
-using Web.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Infrastructure.Identity;
+using Web.ViewModels.User;
+using Web.Interfaces.User;
 
 namespace Web.Pages.Fleet
 {

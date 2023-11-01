@@ -2,37 +2,31 @@ using ApplicationCore.Entities;
 using ApplicationCore.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
-using System.Configuration;
-using Web.Interfaces;
+
 
 namespace Web.Pages.Admin.Manage.Fleet
 {
     [Authorize]
     public class CreateModel : PageModel
     {
-        private readonly IFleetViewModelService _fleetViewModelService;
         private readonly IVehicleService _vehicleService;
         private readonly IRepository<Vehicle> _vehicleRepository;
+        private readonly IRepository<VehicleType> _vehicleTypeRepository;
 
-        public CreateModel(IFleetViewModelService fleetViewModelService, IVehicleService vehicleService, IRepository<Vehicle> vehicleRepository)
+        public CreateModel(IRepository<VehicleType> vehicleTypeRepository, IVehicleService vehicleService, IRepository<Vehicle> vehicleRepository)
         {
-            _fleetViewModelService = fleetViewModelService;
             _vehicleService = vehicleService;
             _vehicleRepository = vehicleRepository;
-            
+            _vehicleTypeRepository = vehicleTypeRepository;
         }
 
         public IEnumerable<VehicleType> vehicleTypes { get; set; } = new List<VehicleType>();
 
         public async Task OnGet()
         {
-            vehicleTypes = await _fleetViewModelService.GetVehicleTypesList();
+            vehicleTypes = await _vehicleTypeRepository.ListAsync();
         }
 
         [BindProperty]
@@ -73,7 +67,7 @@ namespace Web.Pages.Admin.Manage.Fleet
 
         public async Task<IActionResult> OnPost()
         {
-            vehicleTypes = await _fleetViewModelService.GetVehicleTypesList();
+            vehicleTypes = await _vehicleTypeRepository.ListAsync();
             
             if (ModelState.IsValid)
             {
@@ -111,6 +105,7 @@ namespace Web.Pages.Admin.Manage.Fleet
                .Where(x => x.Value.Errors.Count > 0)
                .Select(x => new { x.Key, x.Value.Errors })
                .ToList();
+
                 foreach (var error in errors)
                 {
                     ModelState.AddModelError(error.Key, error.Errors[0].ErrorMessage);
