@@ -34,7 +34,8 @@ namespace Web.Pages.Admin.Manage.Fleet
 
         public Task<RedirectToPageResult> OnPostUpdate(int Id)
         {
-            return Task.FromResult(RedirectToPage("./Index"));
+            TempData["VehicleId"] = Id;
+            return Task.FromResult(RedirectToPage("./Update"));
         }
 
 

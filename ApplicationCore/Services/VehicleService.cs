@@ -18,7 +18,7 @@ namespace ApplicationCore.Services
         }
         public async Task<ValidationResult> CreateAsync(Vehicle vehicle, string vehicleType)
         {
-            var checkRegistrationNumberResult = await CheckRegistrationNumberAsync(vehicle.RegistrationNumber);
+            var checkRegistrationNumberResult = await CheckRegistrationNumberAsync(vehicle.RegistrationNumber, vehicle);
             var checkVehicleTypeResult = await CheckVehicleTypeAsync(vehicleType);
 
             if (checkVehicleTypeResult.Succeeded)
@@ -43,20 +43,47 @@ namespace ApplicationCore.Services
 
         }
 
-        public async Task<ValidationResult> UpdateAsync(Vehicle vehicle)
+        public async Task<ValidationResult> UpdateAsync(Vehicle vehicle, string vehicleType)
         {
-            return new ValidationResult();
+            var checkRegistrationNumberResult = await CheckRegistrationNumberAsync(vehicle.RegistrationNumber, vehicle);
+            var checkVehicleTypeResult = await CheckVehicleTypeAsync(vehicleType);
+
+            if (checkVehicleTypeResult.Succeeded)
+            {
+                vehicle.VehicleTypeId = await FindVehicleTypeID(vehicleType);
+                if (checkRegistrationNumberResult.Succeeded)
+                {
+                    await _vehicleRepository.UpdateAsync(vehicle);
+                    return ValidationResult.Success;
+                }
+                return ValidationResult.Failed(checkRegistrationNumberResult.Errors.ToArray());
+            }
+            else if (checkRegistrationNumberResult.Succeeded)
+            {
+                return ValidationResult.Failed(checkVehicleTypeResult.Errors.ToArray());
+            }
+            else
+            {
+                var errors = new List<ValidationError> { checkRegistrationNumberResult.Errors.First(), checkVehicleTypeResult.Errors.First() };
+                return ValidationResult.Failed(errors.ToArray());
+            }
         }
 
-        private async Task<ValidationResult> CheckRegistrationNumberAsync(string registrationNumber)
+        private async Task<ValidationResult> CheckRegistrationNumberAsync(string registrationNumber, Vehicle Vehicle)
         {
             var vehicles = await _vehicleRepository.ListAsync();
             bool numberExists = false;
-            foreach (var vehicle in vehicles)
+            foreach (var dbVehicle in vehicles)
             {
-                if(vehicle.RegistrationNumber == registrationNumber)
+                if(dbVehicle.RegistrationNumber == registrationNumber)
                 {
-                    numberExists = true;
+                    if(dbVehicle == Vehicle) { 
+                        numberExists = false;
+                    }
+                    else
+                    {
+                        numberExists = true;
+                    }
                 }
             }
             if (numberExists)

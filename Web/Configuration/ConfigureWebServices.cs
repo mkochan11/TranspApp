@@ -15,6 +15,7 @@ namespace Web.Configuration
             services.AddScoped<IPricingItemViewModelService, PricingItemViewModelService>();
             services.AddScoped<IPricingViewModelService, PricingViewModelService>();
             services.AddScoped<IViewModelService, ViewModelService>();
+            services.AddScoped<IUpdateViewModelService, UpdateViewModelService>();
 
             return services;
         }
