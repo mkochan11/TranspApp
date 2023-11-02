@@ -31,7 +31,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         
-                        @if(Context.User.HasClaim("IsAdmin", bool.FalseString))
+                        @if(Context.User.HasClaim("IsAdmin", bool.FalseString) || !(SignInManager.IsSignedIn(User)))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Fleet/Index">Fleet</a>
@@ -57,7 +57,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="DropdownManage">
                                     <a class="dropdown-item" asp-area="" asp-page="/Admin/Manage/Fleet/Index">Fleet</a>
-                                    <a class="dropdown-item" asp-area="" asp-page="/Admin/Manage/Fleet/Index">Pricing</a>
+                                    <a class="dropdown-item" asp-area="" asp-page="/Admin/Manage/Pricing/Index">Pricing</a>
                                 </div>
                             </li>
                         }

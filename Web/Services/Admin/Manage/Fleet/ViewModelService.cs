@@ -1,11 +1,12 @@
 ﻿
 using ApplicationCore.Entities;
 using ApplicationCore.Interfaces;
-using Web.Interfaces.Admin.ManageFleet;
-using Web.ViewModels.Admin.ManageFleet;
+using Web.Interfaces.Admin.Manage.Fleet;
+using Web.ViewModels.Admin.Manage;
+using Web.ViewModels.Admin.Manage.Fleet;
 using Web.ViewModels.User;
 
-namespace Web.Services.Admin.ManageFleet
+namespace Web.Services.Admin.Manage.Fleet
 {
     public class ViewModelService : IViewModelService
     {
@@ -42,7 +43,8 @@ namespace Web.Services.Admin.ManageFleet
                     ProductionYear = i.ProductionYear,
                 }).ToList(),
 
-                DetailedVehicles = vehicles.Select(i => new DetailedItemViewModel {
+                DetailedVehicles = vehicles.Select(i => new DetailedItemViewModel
+                {
                     Id = i.Id,
                     Model = i.Model,
                     Brand = i.Brand,
@@ -57,9 +59,9 @@ namespace Web.Services.Admin.ManageFleet
                     Id = i.Id,
                     Type = i.Type
                 }).ToList(),
-                
+
             };
             return vm;
-        } 
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Web.ViewModels.Admin.ManageFleet
+﻿namespace Web.ViewModels.Admin.Manage.Fleet
 {
     public class ItemViewModel
     {

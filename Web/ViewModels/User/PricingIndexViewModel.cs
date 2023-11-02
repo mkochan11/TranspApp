@@ -2,7 +2,7 @@
 {
     public class PricingIndexViewModel
     {
-        public List<PricingItemViewModel> PricingItems { get; set; }
+        public List<PricingItemViewModel> PricingItems { get; set; } = new List<PricingItemViewModel>();
 
     }
 }

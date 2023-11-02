@@ -4,9 +4,9 @@ using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Identity;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
-using Web.ViewModels.Admin.ManageFleet;
-using Web.Interfaces.Admin.ManageFleet;
 using System.Reflection.Metadata;
+using Web.Interfaces.Admin.Manage.Fleet;
+using Web.ViewModels.Admin.Manage.Fleet;
 
 namespace Web.Pages.Admin.Manage.Fleet
 {

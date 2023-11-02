@@ -1,6 +1,6 @@
 ﻿using ApplicationCore.Entities;
 
-namespace Web.Interfaces.Admin.ManageFleet
+namespace Web.Interfaces.Admin.Manage.Fleet
 {
     public interface IUpdateViewModelService
     {

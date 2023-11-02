@@ -1,5 +1,6 @@
-﻿using Web.ViewModels.Admin.ManageFleet;
-namespace Web.Interfaces.Admin.ManageFleet
+﻿using Web.ViewModels.Admin.Manage.Fleet;
+
+namespace Web.Interfaces.Admin.Manage.Fleet
 {
     public interface IViewModelService
     {

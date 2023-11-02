@@ -5,8 +5,8 @@ using ApplicationCore.Interfaces;
 using ApplicationCore.Entities;
 using System.ComponentModel.DataAnnotations;
 using Web.Interfaces.User;
-using Web.Interfaces.Admin.ManageFleet;
 using ApplicationCore.Services;
+using Web.Interfaces.Admin.Manage.Fleet;
 
 namespace Web.Pages.Admin.Manage.Fleet
 {

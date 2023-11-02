@@ -1,0 +1,44 @@
+﻿@page
+@model Web.Pages.Admin.Manage.Pricing.IndexModel
+@{
+    ViewData["Title"] = "Manage Pricing";
+    int i = 1;
+}
+
+<div class="text-center">
+    <h1 class="display-5">Manage your Pricing</h1>
+</div>
+
+<div class="container">
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Type</th>
+                <th scope="col">Price per 100km</th>
+                <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var price in Model.PricingModel.PricingItems)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <partial name="_price" for="@price" />
+                    <td>
+                        <form method="post" asp-page-handler="Update" asp-route-id="@price.Id">
+                            <button class="btn btn-warning">Edit</button>
+                        </form>
+                    </td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+    <div>
+        <form class="flex-center" method="post" asp-page-handler="Add">
+            <button class="btn btn-success text-center">Add</button>
+        </form>
+    </div>
+</div>

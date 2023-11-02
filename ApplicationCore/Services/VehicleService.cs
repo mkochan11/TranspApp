@@ -82,7 +82,7 @@ namespace ApplicationCore.Services
                     }
                     else
                     {
-                        numberExists = true;
+                        numberExists = true; break;
                     }
                 }
             }

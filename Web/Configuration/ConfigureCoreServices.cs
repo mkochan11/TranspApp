@@ -10,7 +10,7 @@ namespace Web.Configuration
         {
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped(typeof(IVehicleService), typeof(VehicleService));
-
+            services.AddScoped(typeof(IVehicleTypeService), typeof(VehicleTypeService));
             return services;
         }
     }

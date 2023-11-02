@@ -1,9 +1,9 @@
 ﻿using ApplicationCore.Entities;
 using ApplicationCore.Interfaces;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Web.Interfaces.Admin.ManageFleet;
+using Web.Interfaces.Admin.Manage.Fleet;
 
-namespace Web.Services.Admin.ManageFleet
+namespace Web.Services.Admin.Manage.Fleet
 {
     public class UpdateViewModelService : IUpdateViewModelService
     {
@@ -20,7 +20,8 @@ namespace Web.Services.Admin.ManageFleet
                 var Vehicle = await _vehicleRepository.GetByIdAsync(Id);
                 return Vehicle;
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw new Exception("Vehicle not found");
             }
