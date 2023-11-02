@@ -1,0 +1,27 @@
+﻿@page
+@model Web.Pages.Admin.Manage.Pricing.UpdateModel
+@{
+}
+
+<h2>Edit vehicle type</h2>
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" method="post">
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Type" class="form-control" aria-required="true" placeholder="type" value="@Model.UpdatedVehicleType.Type"/>
+                <label asp-for="Input.Type">Type</label>
+                <span asp-validation-for="Input.Type" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Price" class="form-control" aria-required="true" placeholder="price" value="@Model.UpdatedVehicleType.PricePer100km"/>
+                <label asp-for="Input.Price">Price</label>
+                <span asp-validation-for="Input.Price" class="text-danger"></span>
+            </div>
+
+            <button id="editTypeSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Submit</button>
+        </form>
+
+    </div>
+</div>

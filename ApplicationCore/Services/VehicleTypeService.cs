@@ -21,7 +21,7 @@ namespace ApplicationCore.Services
         }
         public async Task<ValidationResult> CreateAsync(VehicleType type)
         {
-            var checkVehicleTypeResult = await CheckVehicleTypeAsync(type.Type);
+            var checkVehicleTypeResult = await CheckVehicleTypeAsync(type);
             if (checkVehicleTypeResult.Succeeded)
             {
                 await _vehicleTypeRepository.AddAsync(type);
@@ -33,20 +33,38 @@ namespace ApplicationCore.Services
             }
         }
 
-        public Task<ValidationResult> UpdateAsync(VehicleType type)
+        public async Task<ValidationResult> UpdateAsync(VehicleType type)
         {
-            throw new NotImplementedException();
+            var checkVehicleTypeResult = await CheckVehicleTypeAsync(type);
+            if (checkVehicleTypeResult.Succeeded)
+            {
+                await _vehicleTypeRepository.UpdateAsync(type);
+                return ValidationResult.Success;
+            }
+            else
+            {
+                return ValidationResult.Failed(checkVehicleTypeResult.Errors.ToArray());
+            }
         }
 
-        private async Task<ValidationResult> CheckVehicleTypeAsync(string vehicleType)
+        private async Task<ValidationResult> CheckVehicleTypeAsync(VehicleType vehicleType)
         {
             var vehicleTypes = await _vehicleTypeRepository.ListAsync();
             bool typeExists = false;
             foreach (var type in vehicleTypes)
             {
-                if (type.Type == vehicleType)
+                if (type.Type == vehicleType.Type)
                 {
-                    typeExists = true;
+                    if(type == vehicleType)
+                    {
+                        typeExists = false;
+                    }
+                    else
+                    {
+                        typeExists = true;
+                        break;
+                    }
+                    
                 }
             }
             if (typeExists)

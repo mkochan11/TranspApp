@@ -27,5 +27,11 @@ namespace Web.Pages.Admin.Manage.Pricing
         {
             return Task.FromResult(RedirectToPage("./Create"));
         }
+        public Task<RedirectToPageResult> OnPostUpdate(int Id)
+        {
+            TempData["VehicleTypeId"] = Id;
+            return Task.FromResult(RedirectToPage("./Update"));
+        }
+
     }
 }

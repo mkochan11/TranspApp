@@ -120,6 +120,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlXFByaWNpbmdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Admin/Manage/Pricing/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlXFByaWNpbmdcVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Admin/Manage/Pricing/_price.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlXFByaWNpbmdcX3ByaWNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
