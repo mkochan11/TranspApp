@@ -1,4 +1,6 @@
-﻿using ApplicationCore.Entities;
+﻿using ApplicationCore.Entities.EmployeeAggregate;
+using ApplicationCore.Entities.OrderAggregate;
+using ApplicationCore.Entities.VehicleAggregate;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,5 +16,11 @@ namespace Infrastructure.Data
         
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
+        public DbSet<VehicleActivity> VehicleActivities { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<EmployeeActivity> EmployeeActivities { get; set; }
+        public DbSet<EmployeeContract> EmployeeContracts { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

@@ -2,15 +2,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ApplicationCore.Interfaces;
-using ApplicationCore.Entities;
 using System.ComponentModel.DataAnnotations;
 using Web.Interfaces.User;
 using ApplicationCore.Services;
 using Web.Interfaces.Admin.Manage.Fleet;
+using ApplicationCore.Entities.VehicleAggregate;
 
 namespace Web.Pages.Admin.Manage.Fleet
 {
-    [Authorize]
+    [Authorize(Policy = "Admin")]
     public class UpdateModel : PageModel
     {
         private readonly IRepository<Vehicle> _vehicleRepository;
@@ -75,7 +75,7 @@ namespace Web.Pages.Admin.Manage.Fleet
             }
             else
             {
-                throw new Exception("Vehicle not found");
+                RedirectToPagePermanent("/Error");
             }
 
             VehicleTypes = await _vehicleTypeRepository.ListAsync();

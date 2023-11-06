@@ -6,7 +6,7 @@ using Web.ViewModels.Admin.Manage.Pricing;
 
 namespace Web.Pages.Admin.Manage.Pricing
 {
-    [Authorize]
+    [Authorize(Policy = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly IViewModelService _viewModelService;

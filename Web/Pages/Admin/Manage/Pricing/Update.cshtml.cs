@@ -1,5 +1,6 @@
-using ApplicationCore.Entities;
+using ApplicationCore.Entities.VehicleAggregate;
 using ApplicationCore.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
@@ -7,6 +8,7 @@ using Web.Interfaces.Admin.Manage.Pricing;
 
 namespace Web.Pages.Admin.Manage.Pricing
 {
+    [Authorize(Policy = "Admin")]
     public class UpdateModel : PageModel
     {
         private readonly IRepository<VehicleType> _vehicleTypesRepository;
@@ -45,7 +47,7 @@ namespace Web.Pages.Admin.Manage.Pricing
             }
             else
             {
-                throw new Exception("Vehicle type not found");
+                RedirectToPagePermanent("/Error");
             }
 
             UpdatedVehicleType = CreateVehicleType();

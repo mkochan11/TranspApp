@@ -1,5 +1,4 @@
-﻿
-using ApplicationCore.Entities;
+﻿using ApplicationCore.Entities.VehicleAggregate;
 using ApplicationCore.Interfaces;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Web.Interfaces.User;

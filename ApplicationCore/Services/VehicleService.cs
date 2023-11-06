@@ -1,7 +1,7 @@
-﻿using ApplicationCore.Entities;
-using ApplicationCore.Interfaces;
+﻿using ApplicationCore.Interfaces;
 using ApplicationCore.Validation.Results;
 using ApplicationCore.Validation.Errors;
+using ApplicationCore.Entities.VehicleAggregate;
 
 namespace ApplicationCore.Services
 {

@@ -1,4 +1,4 @@
-﻿using ApplicationCore.Entities;
+﻿using ApplicationCore.Entities.VehicleAggregate;
 
 namespace Web.ViewModels.User
 {

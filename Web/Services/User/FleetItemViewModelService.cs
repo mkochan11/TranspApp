@@ -1,10 +1,10 @@
-﻿using ApplicationCore.Entities;
-using ApplicationCore.Interfaces;
+﻿using ApplicationCore.Interfaces;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Web.ViewModels;
 using Ardalis.Specification;
 using Ardalis.GuardClauses;
 using Web.Interfaces.User;
+using ApplicationCore.Entities.VehicleAggregate;
 
 namespace Web.Services.User
 {

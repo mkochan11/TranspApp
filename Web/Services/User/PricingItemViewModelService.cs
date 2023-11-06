@@ -1,4 +1,4 @@
-﻿using ApplicationCore.Entities;
+﻿using ApplicationCore.Entities.VehicleAggregate;
 using ApplicationCore.Interfaces;
 using Web.Interfaces.User;
 using Web.ViewModels.User;

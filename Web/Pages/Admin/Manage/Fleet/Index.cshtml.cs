@@ -10,7 +10,7 @@ using Web.ViewModels.Admin.Manage.Fleet;
 
 namespace Web.Pages.Admin.Manage.Fleet
 {
-    [Authorize]
+    [Authorize(Policy = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly IViewModelService _viewModelService;

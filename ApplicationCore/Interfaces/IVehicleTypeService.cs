@@ -1,4 +1,4 @@
-﻿using ApplicationCore.Entities;
+﻿using ApplicationCore.Entities.VehicleAggregate;
 using ApplicationCore.Validation.Results;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-using ApplicationCore.Entities;
+using ApplicationCore.Entities.VehicleAggregate;
 using ApplicationCore.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Web.Pages.Admin.Manage.Fleet
 {
-    [Authorize]
+    [Authorize(Policy = "Admin")]
     public class CreateModel : PageModel
     {
         private readonly IVehicleService _vehicleService;

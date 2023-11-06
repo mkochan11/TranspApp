@@ -1,12 +1,14 @@
-using ApplicationCore.Entities;
 using ApplicationCore.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using ApplicationCore.Validation.Results;
+using Microsoft.AspNetCore.Authorization;
+using ApplicationCore.Entities.VehicleAggregate;
 
 namespace Web.Pages.Admin.Manage.Pricing
 {
+    [Authorize(Policy = "Admin")]
     public class CreateModel : PageModel
     {
 
