@@ -6,7 +6,7 @@ using Web.ViewModels.User;
 
 namespace Web.Services.Admin.Manage.Pricing
 {
-    public class ManagePricingViewModelService : IViewModelService
+    public class ManagePricingViewModelService : IManagePricingViewModelService
     {
 
         private readonly IRepository<VehicleType> _vehicleTypeRepository;

@@ -1,0 +1,15 @@
+﻿@using Web.ViewModels.Admin.Manage.Contracts
+@model IndexItemViewModel
+
+<td>@Model.Id</td>
+<td><a asp-page-handler="EmployeeDetails" asp-route-id="@Model.Employee.Id">@Model.Employee.FirstName @Model.Employee.LastName</a></td>
+<td>@Model.StartDate.Date</td>
+@if(Model.EndDate is not null)
+{
+    <td>@Model.EndDate</td>
+}
+else
+{
+    <td>Not set</td>
+}
+

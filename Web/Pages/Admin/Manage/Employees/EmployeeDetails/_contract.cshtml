@@ -1,0 +1,23 @@
+﻿@using Web.ViewModels.Admin.Manage.Employees
+@model EmployeeContractViewModel
+
+<td>@Model.StartDate.ToShortDateString()</td>
+@if(!Model.IsActive)
+{
+    <td>@Model.EndDate.Value.ToShortDateString()</td>
+    <td>@Model.Salary /h</td>
+    
+}
+
+else
+{
+    @if(Model.EndDate is null)
+    {
+        <td>Not set</td>
+    }
+    else
+    {
+        <td>@Model.EndDate.Value.ToShortDateString()</td>
+    }
+    <td>@Model.Salary /h</td>
+}

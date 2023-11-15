@@ -2,7 +2,7 @@
 
 namespace Web.Interfaces.Admin.Manage.Fleet
 {
-    public interface IUpdateViewModelService
+    public interface IFleetUpdateViewModelService
     {
         Task<Vehicle> GetVehicleByIdAsync(int Id);
     }

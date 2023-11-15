@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Entities.VehicleAggregate;
+﻿using ApplicationCore.Entities.EmployeeAggregate;
+using ApplicationCore.Entities.VehicleAggregate;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,19 @@ namespace Infrastructure.Data
 
                     await appDbContext.SaveChangesAsync();
                 }
+                if (!await appDbContext.Employees.AnyAsync())
+                {
+                    await appDbContext.Employees.AddRangeAsync(
+                        GetPreconfiguredEmployees());
+
+                    await appDbContext.SaveChangesAsync();
+
+                    await appDbContext.EmployeeContracts.AddRangeAsync(
+                        GetPreconfiguredEmployeesContracts());
+
+                    await appDbContext.SaveChangesAsync();
+                }
+
             }
             catch (Exception ex)
             {
@@ -63,6 +77,28 @@ namespace Infrastructure.Data
                 new(2, "Volkswagen", "Caddy", 2018, "CD11111", 800),
                 new(5, "Renault", "Midlum", 2007, "XYZ123", 6000),
                 new(6, "Renault", "GamaT460", 2015, "HT45378", 10000)
+            };
+        }
+
+        static IEnumerable<Employee> GetPreconfiguredEmployees()
+        {
+            return new List<Employee>
+            {
+                new Employee("John", "Smith", "johnSmith@transpApp.com", "JS123456", "111222333", true, true),
+                new Employee("Carl", "Johnson", "carlJohnson@transpApp.com", "CJ98765", "999888777", false, false),
+            };
+        }
+
+        static IEnumerable<EmployeeContract> GetPreconfiguredEmployeesContracts()
+        {
+            return new List<EmployeeContract>
+            {
+                new EmployeeContract
+                {
+                    EmployeeId = 1,
+                    StartDate = DateTime.Now,
+                    Salary = 30
+                }
             };
         }
     }

@@ -2,7 +2,7 @@
 
 namespace Web.Interfaces.Admin.Manage.Fleet
 {
-    public interface IViewModelService
+    public interface IManageFleetViewModelService
     {
         Task<IndexViewModel> GetIndexViewModel();
         Task DeleteVehicle(int Id);

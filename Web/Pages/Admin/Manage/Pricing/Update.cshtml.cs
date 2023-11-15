@@ -13,12 +13,12 @@ namespace Web.Pages.Admin.Manage.Pricing
     {
         private readonly IRepository<VehicleType> _vehicleTypesRepository;
         private readonly IVehicleTypeService _vehicleTypeService;
-        private readonly IUpdateViewModelService _updateViewModelService;
+        private readonly IPricingUpdateViewModelService _updateViewModelService;
 
         static int VehicleTypeId;
         public VehicleType UpdatedVehicleType { get; set; }
 
-        public UpdateModel(IRepository<VehicleType> vehicleTypeRepository, IVehicleTypeService vehicleTypeService, IUpdateViewModelService updateViewModelService)
+        public UpdateModel(IRepository<VehicleType> vehicleTypeRepository, IVehicleTypeService vehicleTypeService, IPricingUpdateViewModelService updateViewModelService)
         {
             _vehicleTypesRepository = vehicleTypeRepository;
             _vehicleTypeService = vehicleTypeService;

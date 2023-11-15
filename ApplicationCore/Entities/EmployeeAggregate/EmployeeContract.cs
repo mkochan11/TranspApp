@@ -13,7 +13,19 @@ namespace ApplicationCore.Entities.EmployeeAggregate
         public int EmployeeId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public decimal Salary { get; set; }
+        public float Salary { get; set; }
+
+        public bool IsActive()
+        {
+            if(this.EndDate >= DateTime.Now || this.EndDate is null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public EmployeeContract(){}
     }

@@ -2,7 +2,7 @@
 
 namespace Web.Interfaces.Admin.Manage.Pricing
 {
-    public interface IUpdateViewModelService
+    public interface IPricingUpdateViewModelService
     {
         Task<VehicleType> GetVehicleTypeByIdAsync(int id);
     }

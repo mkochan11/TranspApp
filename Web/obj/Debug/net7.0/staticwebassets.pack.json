@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Web\\wwwroot\\js\\employeeDetailsPageScript.js",
+      "PackagePath": "staticwebassets\\js\\employeeDetailsPageScript.js"
+    },
+    {
       "Id": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

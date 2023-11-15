@@ -13,9 +13,9 @@ namespace Web.Pages.Admin.Manage.Fleet
     [Authorize(Policy = "Admin")]
     public class IndexModel : PageModel
     {
-        private readonly IViewModelService _viewModelService;
+        private readonly IManageFleetViewModelService _viewModelService;
 
-        public IndexModel(IViewModelService ViewModelService)
+        public IndexModel(IManageFleetViewModelService ViewModelService)
         {
             _viewModelService = ViewModelService;
         }

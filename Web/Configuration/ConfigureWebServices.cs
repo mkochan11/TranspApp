@@ -1,7 +1,11 @@
 ﻿using MediatR;
+using Web.Interfaces.Admin.Manage.Contracts;
+using Web.Interfaces.Admin.Manage.Employees;
 using Web.Interfaces.Admin.Manage.Fleet;
 using Web.Interfaces.Admin.Manage.Pricing;
 using Web.Interfaces.User;
+using Web.Services.Admin.Manage.Contracts;
+using Web.Services.Admin.Manage.Employees;
 using Web.Services.Admin.Manage.Fleet;
 using Web.Services.Admin.Manage.Pricing;
 using Web.Services.User;
@@ -16,10 +20,13 @@ namespace Web.Configuration
             services.AddScoped<IFleetItemViewModelService, FleetItemViewModelService>();
             services.AddScoped<IPricingItemViewModelService, PricingItemViewModelService>();
             services.AddScoped<IPricingViewModelService, PricingViewModelService>();
-            services.AddScoped<Interfaces.Admin.Manage.Fleet.IViewModelService, Services.Admin.Manage.Fleet.ManageFleetViewModelService>();
-            services.AddScoped<Interfaces.Admin.Manage.Fleet.IUpdateViewModelService, Services.Admin.Manage.Fleet.FleetUpdateViewModelService>();
-            services.AddScoped<Interfaces.Admin.Manage.Pricing.IViewModelService, Services.Admin.Manage.Pricing.ManagePricingViewModelService>();
-            services.AddScoped<Interfaces.Admin.Manage.Pricing.IUpdateViewModelService, Services.Admin.Manage.Pricing.PricingUpdateViewModelService>();
+            services.AddScoped<IManageFleetViewModelService, ManageFleetViewModelService>();
+            services.AddScoped<IFleetUpdateViewModelService, FleetUpdateViewModelService>();
+            services.AddScoped<IManagePricingViewModelService, ManagePricingViewModelService>();
+            services.AddScoped<IPricingUpdateViewModelService, PricingUpdateViewModelService>();
+            services.AddScoped<IManageEmployeesViewModelService, ManageEmployeesViewModelService>();
+            services.AddScoped<IEmployeeDetailsViewModelService, EmployeeDetailsViewModelService>();
+            services.AddScoped<IManageContractsViewModelService, ManageContractsViewModelService>();
 
 
             return services;

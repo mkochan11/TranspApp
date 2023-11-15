@@ -9,9 +9,9 @@ namespace Web.Pages.Admin.Manage.Pricing
     [Authorize(Policy = "Admin")]
     public class IndexModel : PageModel
     {
-        private readonly IViewModelService _viewModelService;
+        private readonly IManagePricingViewModelService _viewModelService;
 
-        public IndexModel(IViewModelService viewModelService)
+        public IndexModel(IManagePricingViewModelService viewModelService)
         {
             _viewModelService = viewModelService;
         }

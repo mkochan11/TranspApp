@@ -11,11 +11,11 @@ namespace ApplicationCore.Entities.EmployeeAggregate
     public class EmployeeActivity : BaseEntity, IAggregateRoot
     {
         public int EmployeeId { get; set; }
-        public int OrderId { get; set; }
+        public int? OrderId { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime? EndTime { get; set; }
 
         public Employee Employee { get; set; }
-        public Order Order { get; set; }
+        public Order? Order { get; set; }
     }
 }

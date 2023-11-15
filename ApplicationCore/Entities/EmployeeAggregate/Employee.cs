@@ -15,11 +15,24 @@ namespace ApplicationCore.Entities.EmployeeAggregate
         public string EmailAddress { get; set; } = string.Empty;
         public string DriverLicense { get; set; } = string.Empty;
         public string PhoneNumber {  get; set; } = string.Empty;
+        public bool IsActive { get; set; }
+        public bool HasAccount { get; set; }
+
 
         private List<EmployeeContract> _employeeContracts = new List<EmployeeContract>();
         private List<EmployeeActivity> _employeeActivities = new List<EmployeeActivity>();
-        public IEnumerable<EmployeeContract> EmployeeContracts => _employeeContracts.AsReadOnly();
-        public IEnumerable<EmployeeActivity> EmployeeActivities => _employeeActivities.AsReadOnly();
+        public List<EmployeeContract> EmployeeContracts => _employeeContracts;
+        public List<EmployeeActivity> EmployeeActivities => _employeeActivities;
 
+        public Employee(string firstName, string lastName, string emailAddress, string driverLicense, string phoneNumber, bool isActive, bool hasAccount)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.EmailAddress = emailAddress;
+            this.DriverLicense = driverLicense;
+            this.PhoneNumber = phoneNumber;
+            IsActive = IsActive;
+            HasAccount = hasAccount;
+        }
     }
 }

@@ -7,7 +7,7 @@ using Web.ViewModels.User;
 
 namespace Web.Services.Admin.Manage.Fleet
 {
-    public class ManageFleetViewModelService : IViewModelService
+    public class ManageFleetViewModelService : IManageFleetViewModelService
     {
         private readonly IRepository<Vehicle> _vehicleRepository;
         private readonly IRepository<VehicleType> _vehicleTypeRepository;

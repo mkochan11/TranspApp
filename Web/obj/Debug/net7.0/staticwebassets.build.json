@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XfDJHjpqk9vejdLfAxK482acSJermkEv1ZXDHGfsTqE=",
+  "Hash": "LGQ/0xmdtZQTXG00njz0UF7sKc3lVSVbBYjW5UNt8Io=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Web\\wwwroot\\js\\employeeDetailsPageScript.js",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "js/employeeDetailsPageScript.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\employeeDetailsPageScript.js"
     },
     {
       "Identity": "C:\\Users\\kocha\\source\\repos\\TranspApp\\TranspApp\\Web\\wwwroot\\js\\site.js",

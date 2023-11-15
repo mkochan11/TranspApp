@@ -1,0 +1,28 @@
+﻿@using Web.ViewModels.Admin.Manage.Employees
+@model IndexItemViewModel
+
+<td>@Model.FirstName</td>
+<td>@Model.LastName</td>
+<td>@Model.EmailAddress</td>
+@if (Model.IsActive)
+{
+    <td>Yes</td>
+}
+else
+{
+    <td>No</td>
+}
+
+@if (Model.HasAccount)
+{
+    <td style="white-space : pre-line; text-align : center">Yes
+        <a>Delete account</a>
+    </td>
+}
+else
+
+{
+    <td style="white-space : pre-line; text-align : center">No
+        <a asp-page-handler="CreateAccount" asp-route-id="@Model.Id">Create account</a>
+    </td>
+}

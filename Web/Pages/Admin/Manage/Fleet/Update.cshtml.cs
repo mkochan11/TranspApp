@@ -15,7 +15,7 @@ namespace Web.Pages.Admin.Manage.Fleet
     {
         private readonly IRepository<Vehicle> _vehicleRepository;
         private readonly IRepository<VehicleType> _vehicleTypeRepository;
-        private readonly IUpdateViewModelService _updateViewModelService;
+        private readonly IFleetUpdateViewModelService _updateViewModelService;
         private readonly IVehicleService _vehicleService;
 
         //public IEnumerable<Vehicle> Vehicles { get; set; } = new List<Vehicle>();
@@ -24,7 +24,7 @@ namespace Web.Pages.Admin.Manage.Fleet
         public Vehicle NewVehicle;
         static int VehicleId { get; set; }
 
-        public UpdateModel( IRepository<Vehicle> vehicleRepository, IRepository<VehicleType> vehicleTypeRepository, IUpdateViewModelService updateViewModelService, IVehicleService vehicleService)
+        public UpdateModel( IRepository<Vehicle> vehicleRepository, IRepository<VehicleType> vehicleTypeRepository, IFleetUpdateViewModelService updateViewModelService, IVehicleService vehicleService)
         {
             _vehicleRepository = vehicleRepository;
             _vehicleTypeRepository = vehicleTypeRepository;

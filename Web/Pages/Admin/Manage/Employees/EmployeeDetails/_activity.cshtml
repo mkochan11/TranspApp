@@ -1,0 +1,14 @@
+﻿
+@model Web.ViewModels.Admin.Manage.Employees.EmployeeActivityViewModel
+
+<td>@Model.StartTime.Date</td>
+@if (Model.EndTime is not null)
+{
+    <td>@Model.EndTime</td>
+}
+else
+{
+    <td>Now active</td>
+}
+
+<td>Order</td>

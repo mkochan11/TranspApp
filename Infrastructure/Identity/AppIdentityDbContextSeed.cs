@@ -31,6 +31,14 @@ namespace Infrastructure.Identity
             await userManager.CreateAsync(adminUser, AuthorizationConstants.DEFAULT_ADMIN_PASSWORD);
             isAdmin = true;
             await userManager.AddClaimAsync(adminUser, new Claim("IsAdmin", isAdmin.ToString()));
+
+            if (appIdentityDbContext.Users.Count() < 3)
+            {
+                var employeeUser = new ApplicationUser { FirstName = "John", LastName = "Smith", UserName = "johnSmith", Email = "johnSmith@transpApp.com" };
+                await userManager.CreateAsync(employeeUser, AuthorizationConstants.DEFAULT_EMPLOYEE_PASSWORD);
+                var isEmployee = true; ;
+                await userManager.AddClaimAsync(employeeUser, new Claim("IsEmployee", isEmployee.ToString()));
+            }
         }
     }
 }

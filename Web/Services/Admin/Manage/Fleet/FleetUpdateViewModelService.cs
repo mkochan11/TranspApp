@@ -5,7 +5,7 @@ using Web.Interfaces.Admin.Manage.Fleet;
 
 namespace Web.Services.Admin.Manage.Fleet
 {
-    public class FleetUpdateViewModelService : IUpdateViewModelService
+    public class FleetUpdateViewModelService : IFleetUpdateViewModelService
     {
         private readonly IRepository<Vehicle> _vehicleRepository;
 

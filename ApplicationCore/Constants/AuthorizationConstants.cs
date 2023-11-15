@@ -10,6 +10,7 @@ namespace ApplicationCore.Constants
     {
         public const string DEFAULT_USER_PASSWORD = "Def@ult123";
         public const string DEFAULT_ADMIN_PASSWORD = "Admin123!";
+        public const string DEFAULT_EMPLOYEE_PASSWORD = "Employee123!";
 
     }
 }

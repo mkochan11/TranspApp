@@ -12,15 +12,15 @@ namespace ApplicationCore.Entities.OrderAggregate
     public class Order : BaseEntity, IAggregateRoot
     {
         public Guid UserId { get; set; } = Guid.NewGuid();
-        public int VehicleId { get; set; }
-        public int EmployeeId { get; set; }
-        public int VehicleTypeId { get; set; }
-        public int StartAddressId { get; set; }
-        public int EndAddressId { get; set;}
+        public int? VehicleId { get; set; }
+        public int? EmployeeId { get; set; }
+        public int? VehicleTypeId { get; set; }
+        public int? StartAddressId { get; set; }
+        public int? EndAddressId { get; set; }
         public DateTime PlacementTime { get; set; }
         public DateTime ExecutionDate { get; set; }
-        public decimal TotalCost { get; set; }
-        public decimal OrderWeight { get; set; }
+        public float TotalCost { get; set; }
+        public float OrderWeight { get; set; }
         public bool IsCompleted { get; set; }
         public string Comments { get; set; } = string.Empty;
 
@@ -28,12 +28,12 @@ namespace ApplicationCore.Entities.OrderAggregate
         public Vehicle? Vehicle { get; set; }
         public Employee? Employee { get; set; }
         public VehicleType? VehicleType { get; set; }
-        public Address StartAddress { get; set; }
-        public Address EndAddress { get; set; }
+        public Address? StartAddress { get; set; }
+        public Address? EndAddress { get; set; }
 
-        public Order(){}
+        public Order() { }
 
-        public Order(Guid userId, int startAddressId, int endAddressId, DateTime executionDate, decimal orderWeight)
+        public Order(Guid userId, int startAddressId, int endAddressId, DateTime executionDate, float orderWeight)
         {
             UserId = userId;
             StartAddressId = startAddressId;

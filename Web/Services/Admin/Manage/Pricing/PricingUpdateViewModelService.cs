@@ -4,7 +4,7 @@ using Web.Interfaces.Admin.Manage.Pricing;
 
 namespace Web.Services.Admin.Manage.Pricing
 {
-    public class PricingUpdateViewModelService : IUpdateViewModelService
+    public class PricingUpdateViewModelService : IPricingUpdateViewModelService
     {
         private readonly IRepository<VehicleType> _vehicleTypesRepository;
 
