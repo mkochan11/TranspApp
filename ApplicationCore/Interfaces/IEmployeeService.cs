@@ -10,6 +10,5 @@ namespace ApplicationCore.Interfaces
     public interface IEmployeeService
     {
         Task<Result> UpdateEmployeeActivityStatus(int employeeId);
-        Task<Result> AddContractToEmployee(int employeeId, int contractId);
     }
 }

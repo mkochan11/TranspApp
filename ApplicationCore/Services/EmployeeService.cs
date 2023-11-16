@@ -22,24 +22,6 @@ namespace ApplicationCore.Services
 
         }
 
-        public async Task<Result> AddContractToEmployee(int employeeId, int contractId)
-        {
-            var contract = await _employeeContractRepository.GetByIdAsync(contractId);
-            if (contract == null)
-            {
-                return Result.Error("Contract not found.");
-            }
-
-            var employee = await _employeeRepository.GetByIdAsync(employeeId);
-            if(employee == null)
-            {
-                return Result.Error("Employee not found.");
-            }
-
-            employee.EmployeeContracts.Add(contract);
-            
-            return Result.Success();
-        }
 
         public async Task<Result> UpdateEmployeeActivityStatus(int employeeId)
         {

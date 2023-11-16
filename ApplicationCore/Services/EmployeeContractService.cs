@@ -44,12 +44,6 @@ namespace ApplicationCore.Services
             await _contractsRepository.AddAsync(newContract);
             await _contractsRepository.SaveChangesAsync();
 
-            var resAddContract = await _employeeService.AddContractToEmployee(newContract.EmployeeId, newContract.Id);
-            if (!resAddContract.IsSuccess)
-            {
-                return Result.Error(resAddContract.Errors.ToArray());
-            }
-
             var resEmpl = await _employeeService.UpdateEmployeeActivityStatus(newContract.EmployeeId);
             if (!resEmpl.IsSuccess) { 
                 return Result.Error(resEmpl.Errors.ToArray());
@@ -90,6 +84,13 @@ namespace ApplicationCore.Services
             }
             await _contractsRepository.DeleteAsync(contract);
             await _contractsRepository.SaveChangesAsync();
+
+            var resEmpl = await _employeeService.UpdateEmployeeActivityStatus(contract.EmployeeId);
+            if (!resEmpl.IsSuccess)
+            {
+                return Result.Error(resEmpl.Errors.ToArray());
+            }
+
             return Result.Success();
         }
 
@@ -111,9 +112,46 @@ namespace ApplicationCore.Services
                 }
         }
 
-        public Task<Result> CreateContract(EmployeeContract contract)
+        public async Task<Result> CreateContract(int employeeId, DateTime startDate, DateTime endDate, float salary)
         {
-            throw new NotImplementedException();
+            var contract = CreateContractObject();
+            contract.EmployeeId = employeeId;
+            contract.StartDate = startDate;
+            contract.EndDate = endDate;
+            contract.Salary = salary;
+
+            await _contractsRepository.AddAsync(contract);
+            await _contractsRepository.SaveChangesAsync();
+
+            var res = await _employeeService.UpdateEmployeeActivityStatus(employeeId);
+            if (!res.IsSuccess)
+            {
+                return Result.Error(res.Errors.ToArray());
+            }
+
+            return Result.Success();
+        }
+
+        public async Task<Result> UpdateContract(int contractId, int employeeId, DateTime startDate, DateTime endDate, float salary)
+        {
+            var contract = await _contractsRepository.GetByIdAsync(contractId);
+            if (contract == null)
+            {
+                return Result.Error("Contract not found.");
+            }
+            contract.StartDate = startDate;
+            contract.EndDate = endDate;
+            contract.Salary = salary;
+
+            await _contractsRepository.UpdateAsync(contract);
+            await _contractsRepository.SaveChangesAsync();
+
+            var res = await _employeeService.UpdateEmployeeActivityStatus(employeeId);
+            if (!res.IsSuccess)
+            {
+                return Result.Error(res.Errors.ToArray());
+            }
+            return Result.Success();
         }
     }
 }

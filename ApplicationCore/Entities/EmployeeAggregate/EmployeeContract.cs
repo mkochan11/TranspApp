@@ -17,7 +17,7 @@ namespace ApplicationCore.Entities.EmployeeAggregate
 
         public bool IsActive()
         {
-            if(this.EndDate >= DateTime.Now || this.EndDate is null)
+            if(this.StartDate < DateTime.Now && (this.EndDate >= DateTime.Now || this.EndDate is null))
             {
                 return true;
             }

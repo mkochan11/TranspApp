@@ -72,9 +72,30 @@ namespace Web.Pages.Admin.Manage.Employees
             }
         }
 
-        public async Task<IActionResult> OnPostAddContract()
+        public async Task<IActionResult> OnPostAddContract(int employeeId, DateTime startDate, DateTime endDate, float salary)
         {
-            return RedirectToPage("./Index", new {id = EmployeeId});
+            var res = await _employeeContractService.CreateContract(employeeId, startDate, endDate, salary);
+            if (res.IsSuccess)
+            {
+                return RedirectToPage("./Index", new { id = employeeId });
+            }
+            else
+            {
+                return RedirectToPage("/Error");
+            }
+        }
+
+        public async Task<IActionResult> OnPostEditContract(int id, int employeeId, DateTime startDate, DateTime endDate, float salary)
+        {
+            var res = await _employeeContractService.UpdateContract(id, employeeId, startDate, endDate, salary);
+            if (res.IsSuccess)
+            {
+                return RedirectToPage("./Index", new { id = employeeId });
+            }
+            else
+            {
+                return RedirectToPage("/Error");
+            }
         }
     }
 }
