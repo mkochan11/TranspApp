@@ -52,7 +52,7 @@
                             else
                             {
                                 <td>
-                                    <button type="button" class="btn btn-success renew-contract-btn" id="" data-bs-toggle="modal" data-bs-target="#activateContractBackdrop" data-bs-id="@contract.Id" data-bs-employeeId="@contract.EmployeeId">
+                                    <button type="button" class="btn btn-success activate-contract-btn" id="" data-bs-toggle="modal" data-bs-target="#activateContractBackdrop" data-bs-id="@contract.Id" data-bs-employeeId="@contract.EmployeeId">
                                         Activate Contract
                                     </button>
                                 </td>
@@ -79,7 +79,7 @@
                             <td>
                                 <button type="button" class="btn btn-info edit-contract-btn" data-bs-toggle="modal" data-bs-target="#editContractBackdrop" data-bs-id="@contract.Id" data-bs-employeeId="@contract.EmployeeId"
                                         data-bs-startDate="@contract.StartDate" data-bs-endDate="@contract.EndDate" data-bs-salary="@contract.Salary">
-                                        Edit Contract
+                                    Edit Contract
                                 </button>
                             </td>
                             <td>
@@ -94,6 +94,7 @@
             </tbody>
         </table>
         <button class="btn btn-success text-center add-contract-btn" data-bs-toggle="modal" data-bs-target="#addContractBackdrop" data-bs-employeeId="@Model.ViewModel.Employee.Id">Add contract</button>
+        <p></p>
     </div>
 }
 else
@@ -269,6 +270,27 @@ else
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-success add-contract-submit-btn" data-bs-employeeId="@Model.ViewModel.Employee.Id">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Activate Modal -->
+<form method="post" id="activateForm" action="">
+    <div class="modal fade" id="activateContractBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelActivate" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabelActivate">Activate Contract</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to activate the Contract?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-success">Yes</button>
                 </div>
             </div>
         </div>

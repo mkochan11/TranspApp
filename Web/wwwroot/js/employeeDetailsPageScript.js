@@ -14,6 +14,14 @@ $(document).ready(function () {
         $("#terminateForm").attr("action", action);
     });
 
+    $(".activate-contract-btn").click(function () {
+
+        var id = $(this).attr('data-bs-id');
+        var employeeId = $(this).attr('data-bs-employeeId');
+        var action = "/Admin/Manage/Employees/EmployeeDetails?id=" + id + "&employeeId=" + employeeId + "&handler=ActivateContract";
+        $("#activateForm").attr("action", action);
+    });
+
     $(".delete-contract-btn").click(function () {
 
         var id = $(this).attr('data-bs-id');

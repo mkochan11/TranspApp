@@ -23,7 +23,7 @@ namespace ApplicationCore.Services
 
         public async Task<Result> RenewContract(int contractId)
         {
-            var oldContract = await GetEmployeeContract(contractId);
+            var oldContract = await _contractsRepository.GetByIdAsync(contractId);
             if (oldContract == null)
             {
                 var res = Result.NotFound("Contract not found");
@@ -54,7 +54,7 @@ namespace ApplicationCore.Services
 
         public async Task<Result> TerminateContract(int contractId)
         {
-            var contract = await GetEmployeeContract(contractId);
+            var contract = await _contractsRepository.GetByIdAsync(contractId);
             if (contract == null)
             {
                 var res = Result.NotFound("Contract not found");
@@ -76,7 +76,7 @@ namespace ApplicationCore.Services
 
         public async Task<Result> DeleteContract(int contractId)
         {
-            var contract = await GetEmployeeContract(contractId);
+            var contract = await _contractsRepository.GetByIdAsync(contractId);
             if (contract == null)
             {
                 var res = Result.NotFound("Contract not found");
@@ -94,30 +94,20 @@ namespace ApplicationCore.Services
             return Result.Success();
         }
 
-        private async Task<EmployeeContract> GetEmployeeContract(int contractId) 
-        { 
-            var contract  = await _contractsRepository.GetByIdAsync(contractId);
-            return contract;
-        }
-
-        private EmployeeContract CreateContractObject()
-        {
-                try
-                {
-                    return Activator.CreateInstance<EmployeeContract>();
-                }
-                catch
-                {
-                    throw new InvalidOperationException($"Can't create an instance of '{nameof(EmployeeContract)}'.");
-                }
-        }
-
         public async Task<Result> CreateContract(int employeeId, DateTime startDate, DateTime endDate, float salary)
         {
             var contract = CreateContractObject();
             contract.EmployeeId = employeeId;
             contract.StartDate = startDate;
-            contract.EndDate = endDate;
+            var nullDate = new DateTime(0001, 01, 01, 00, 00, 00);
+            if (endDate == nullDate)
+            {
+                contract.EndDate = null;
+            }
+            else
+            {
+                contract.EndDate = endDate;
+            }
             contract.Salary = salary;
 
             await _contractsRepository.AddAsync(contract);
@@ -140,7 +130,15 @@ namespace ApplicationCore.Services
                 return Result.Error("Contract not found.");
             }
             contract.StartDate = startDate;
-            contract.EndDate = endDate;
+            var nullDate = new DateTime(0001, 01, 01, 00, 00, 00);
+            if(endDate == nullDate)
+            {
+                contract.EndDate = null;
+            }
+            else
+            {
+                contract.EndDate = endDate;
+            }
             contract.Salary = salary;
 
             await _contractsRepository.UpdateAsync(contract);
@@ -152,6 +150,41 @@ namespace ApplicationCore.Services
                 return Result.Error(res.Errors.ToArray());
             }
             return Result.Success();
+        }
+
+        public async Task<Result> ActivateContract(int contractId)
+        {
+            var contract = await _contractsRepository.GetByIdAsync(contractId);
+            if (contract == null)
+            {
+                return Result.Error("Contract not found");
+            }
+
+            contract.StartDate = DateTime.Now;
+
+            await _contractsRepository.UpdateAsync(contract);
+            await _contractsRepository.SaveChangesAsync();
+
+            var res = await _employeeService.UpdateEmployeeActivityStatus(contract.EmployeeId);
+            if (!res.IsSuccess)
+            {
+                return Result.Error(res.Errors.ToArray());
+            }
+            return Result.Success();
+
+        }
+
+
+        private EmployeeContract CreateContractObject()
+        {
+            try
+            {
+                return Activator.CreateInstance<EmployeeContract>();
+            }
+            catch
+            {
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(EmployeeContract)}'.");
+            }
         }
     }
 }

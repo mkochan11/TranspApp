@@ -97,5 +97,18 @@ namespace Web.Pages.Admin.Manage.Employees
                 return RedirectToPage("/Error");
             }
         }
+
+        public async Task<IActionResult> OnPostActivateContract(int id, int employeeId)
+        {
+            var res = await _employeeContractService.ActivateContract(id);
+            if (res.IsSuccess)
+            {
+                return RedirectToPage("./Index", new { id = employeeId });
+            }
+            else
+            {
+                return RedirectToPage("/Error");
+            }
+        }
     }
 }

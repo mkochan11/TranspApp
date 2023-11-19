@@ -16,5 +16,6 @@ namespace ApplicationCore.Interfaces
         Task<Result> DeleteContract(int contractId);
         Task<Result> CreateContract(int employeeId, DateTime startDate, DateTime endDate, float salary);
         Task<Result> UpdateContract(int contractId, int employeeId, DateTime startDate, DateTime endDate, float salary);
+        Task<Result> ActivateContract(int contractId);
     }
 }
