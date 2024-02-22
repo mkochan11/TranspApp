@@ -13,6 +13,8 @@ namespace Web.Configuration
             services.AddScoped(typeof(IVehicleTypeService), typeof(VehicleTypeService));
             services.AddScoped(typeof(IEmployeeContractService), typeof(EmployeeContractService));
             services.AddScoped(typeof(IEmployeeService), typeof(EmployeeService));
+            services.AddScoped(typeof(IOrderService), typeof(OrderService));
+            
             return services;
         }
     }

@@ -11,7 +11,7 @@ namespace ApplicationCore.Entities.OrderAggregate
 {
     public class Order : BaseEntity, IAggregateRoot
     {
-        public Guid UserId { get; set; } = Guid.NewGuid();
+        public string UserName { get; set; }
         public int? VehicleId { get; set; }
         public int? EmployeeId { get; set; }
         public int? VehicleTypeId { get; set; }
@@ -22,6 +22,8 @@ namespace ApplicationCore.Entities.OrderAggregate
         public float TotalCost { get; set; }
         public float OrderWeight { get; set; }
         public bool IsCompleted { get; set; }
+        public bool IsConfirmed { get; set; }
+        public bool IsPaid { get; set; }
         public string Comments { get; set; } = string.Empty;
 
 
@@ -33,14 +35,17 @@ namespace ApplicationCore.Entities.OrderAggregate
 
         public Order() { }
 
-        public Order(Guid userId, int startAddressId, int endAddressId, DateTime executionDate, float orderWeight)
+        public Order(string username, int startAddressId, int endAddressId, DateTime executionDate, float orderWeight)
         {
-            UserId = userId;
+            UserName = username;
             StartAddressId = startAddressId;
             EndAddressId = endAddressId;
             ExecutionDate = executionDate;
             OrderWeight = orderWeight;
             PlacementTime = DateTime.Now;
+            IsCompleted = false;
+            IsConfirmed = false;
+            IsPaid = false;
         }
 
     }

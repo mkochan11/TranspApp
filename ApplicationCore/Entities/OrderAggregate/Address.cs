@@ -12,10 +12,15 @@ namespace ApplicationCore.Entities.OrderAggregate
         public string Country { get; set; } = string.Empty;
         public string City { get; set; } = string.Empty;
         public string PostalCode { get; set; } = string.Empty;
+        public string Street { get; set; } = string.Empty;
+        public string HouseNumber { get; set; } = string.Empty;
 
-        public string Street {  get; set; } = string.Empty;
-        public string HouseNumber {  get; set; } = string.Empty;
-
-        public Address(){}
+        public Address(string country, string city, string postalCode, string street, string houseNumber) {
+            this.Country = country;
+            this.City = city;
+            this.PostalCode = postalCode;
+            this.Street = street;
+            this.HouseNumber = houseNumber;
+        }
     }
 }

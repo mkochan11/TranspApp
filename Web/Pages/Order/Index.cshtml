@@ -1,0 +1,181 @@
+﻿@page
+@model Web.Pages.Order.IndexModel
+@{
+}
+
+@* <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBydus56CIfoLNOYg0u7gYPz3GAZX5ZpqU&callback=initMap">
+</script> *@
+<script src="https://code.jquery.com/jquery-3.7.1.js" type="text/javascript"></script>
+@* <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBydus56CIfoLNOYg0u7gYPz3GAZX5ZpqU&callback=console.debug&libraries=maps,marker&v=beta">
+</script> *@
+
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <h2 class="flex-center">Place an order</h2>
+    </div>
+    <br />
+    <div class="row ">
+        <div class="col-md-8">
+            <form id="orderForm" method="post">
+                <div class="row ">
+                    <div class="col-auto">
+                            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="InputOrder.Date" class="form-control" type="date" aria-required="true"  placeholder=""/>
+                                <label asp-for="InputOrder.Date">Date</label>
+                                <span asp-validation-for="InputOrder.Date" class="text-danger"></span>
+                            </div>
+                    </div>
+                    <div class="col-auto">
+                            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="InputOrder.Weight" class="form-control" type="number" aria-required="true" placeholder=""/>
+                                <label asp-for="InputOrder.Weight">Weight (kgs)</label>
+                                <span asp-validation-for="InputOrder.Weight" class="text-danger"></span>
+                            </div>
+                    </div>
+            </div>
+    
+            <div class="row ">
+                <div class="col-auto ">
+                    <h3>Starting Address</h3>
+                    <br />
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="InputStartingAddress.Country" id="startingCountryInput" class="form-control" aria-required="true" placeholder=""/>
+                            <label asp-for="InputStartingAddress.Country">Country</label>
+                            <span asp-validation-for="InputStartingAddress.Country" class="text-danger"></span>
+                        </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="InputStartingAddress.City" id="startingCityInput" class="form-control" aria-required="true" placeholder="" />
+                            <label asp-for="InputStartingAddress.City">City</label>
+                            <span asp-validation-for="InputStartingAddress.City" class="text-danger"></span>
+                        </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="InputStartingAddress.PostalCode" id="startingPostalCodeInput" class="form-control" aria-required="true" placeholder="" />
+                            <label asp-for="InputStartingAddress.PostalCode">Postal code</label>
+                            <span asp-validation-for="InputStartingAddress.PostalCode" class="text-danger"></span>
+                        </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="InputStartingAddress.Street" id="startingStreetInput" class="form-control" aria-required="true" placeholder="" />
+                            <label asp-for="InputStartingAddress.Street">Street</label>
+                            <span asp-validation-for="InputStartingAddress.Street" class="text-danger"></span>
+                        </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="InputStartingAddress.HouseNumber" id="startingHouseNumberInput" class="form-control" aria-required="true" placeholder="" />
+                            <label asp-for="InputStartingAddress.HouseNumber">House number</label>
+                            <span asp-validation-for="InputStartingAddress.HouseNumber" class="text-danger"></span>
+                        </div>
+                </div>
+                <div class="col-md-1">
+             
+                </div>
+                <div class="col-auto ">
+                    <h3>Destination address</h3>
+                    <br />
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="InputDestinationAddress.Country" id="destinationCountryInput" class="form-control" aria-required="true" placeholder="" />
+                            <label asp-for="InputDestinationAddress.Country">Country</label>
+                            <span asp-validation-for="InputDestinationAddress.Country" class="text-danger"></span>
+                        </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="InputDestinationAddress.City" id="destinationCityInput" class="form-control" aria-required="true" placeholder="" />
+                            <label asp-for="InputDestinationAddress.City">City</label>
+                            <span asp-validation-for="InputDestinationAddress.City" class="text-danger"></span>
+                        </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="InputDestinationAddress.PostalCode" id="destinationPostalCodeInput" class="form-control" aria-required="true" placeholder="" />
+                            <label asp-for="InputDestinationAddress.PostalCode">Postal code</label>
+                            <span asp-validation-for="InputDestinationAddress.PostalCode" class="text-danger"></span>
+                        </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="InputDestinationAddress.Street" id="destinationStreetInput" class="form-control" aria-required="true" placeholder="" />
+                            <label asp-for="InputDestinationAddress.Street">Street</label>
+                            <span asp-validation-for="InputDestinationAddress.Street" class="text-danger"></span>
+                        </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="InputDestinationAddress.HouseNumber" id="destinationHouseNumberInput" class="form-control" aria-required="true" placeholder="" />
+                            <label asp-for="InputDestinationAddress.HouseNumber">House number</label>
+                            <span asp-validation-for="InputDestinationAddress.HouseNumber" class="text-danger"></span>
+                        </div>
+                </div>
+            </div>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-success" id="confirm-addresses-btn">Submit order details</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+</div>
+
+@* @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+} *@
+
+@* 
+<h2>Add new vehicle</h2>
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" method="post">
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Brand" class="form-control" autocomplete="brand" aria-required="true" placeholder="brand" />
+                <label asp-for="Input.Brand">Brand</label>
+                <span asp-validation-for="Input.Brand" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Model" class="form-control" autocomplete="model" aria-required="true" placeholder ="model" />
+                <label asp-for="Input.Model">Model</label>
+                <span asp-validation-for="Input.Model" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ProductionYear" class="form-control" autocomplete="yearOfProduction" aria-required="true" placeholder="year of production" />
+                <label asp-for="Input.ProductionYear">Production year</label>
+                <span asp-validation-for="Input.ProductionYear" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.RegistrationNumber" class="form-control" autocomplete="registrationNumber" aria-required="true" placeholder="registrationNumber" />
+                <label asp-for="Input.RegistrationNumber">Registration number</label>
+                <span asp-validation-for="Input.RegistrationNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.VehicleType" list="vehicleTypes" class="form-control" autocomplete="vehicleType" />
+                <datalist id="vehicleTypes">
+                    @foreach (var vehicleType in Model.vehicleTypes)
+                    {
+                        <option value = "@vehicleType.Type"></option>
+                    }
+                </datalist>
+                <label asp-for="Input.VehicleType">Vehicle type</label>
+                <span asp-validation-for="Input.VehicleType" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Capacity"  class="form-control" autocomplete="capacity" aria-required="true" placeholder="capacity" />
+                <label asp-for="Input.Capacity">Capacity (kgs)</label>
+                <span asp-validation-for="Input.Capacity" class="text-danger"></span>
+            </div>
+            <button id="addVehicleSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Add Vehicle</button>
+        </form>
+
+    </div>
+</div> *@

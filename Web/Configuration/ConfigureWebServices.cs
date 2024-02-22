@@ -17,8 +17,6 @@ namespace Web.Configuration
         public static IServiceCollection AddWebServices(this IServiceCollection services, IConfiguration configuration) 
         {
             services.AddScoped<IFleetViewModelService, FleetViewModelService>();
-            services.AddScoped<IFleetItemViewModelService, FleetItemViewModelService>();
-            services.AddScoped<IPricingItemViewModelService, PricingItemViewModelService>();
             services.AddScoped<IPricingViewModelService, PricingViewModelService>();
             services.AddScoped<IManageFleetViewModelService, ManageFleetViewModelService>();
             services.AddScoped<IFleetUpdateViewModelService, FleetUpdateViewModelService>();
@@ -27,6 +25,7 @@ namespace Web.Configuration
             services.AddScoped<IManageEmployeesViewModelService, ManageEmployeesViewModelService>();
             services.AddScoped<IEmployeeDetailsViewModelService, EmployeeDetailsViewModelService>();
             services.AddScoped<IManageContractsViewModelService, ManageContractsViewModelService>();
+            services.AddScoped<IMyOrdersViewModelService, MyOrdersViewModelService>();
 
 
             return services;

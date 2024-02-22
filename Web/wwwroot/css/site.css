@@ -37,3 +37,7 @@ body {
 .hidden-div {
     visibility: hidden;
 }
+
+#dvMap {
+    height: 100%;
+}

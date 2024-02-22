@@ -1,0 +1,52 @@
+﻿@using Web.ViewModels.User
+@model MyOrdersItemViewModel
+
+<td>@Model.ExecutionDate.Date</td>
+<td>@Model.PlacementTime.Date</td>
+<td>@Model.StartAddress.Country, @Model.StartAddress.City, @Model.StartAddress.Street @Model.StartAddress.HouseNumber -> @Model.EndAddress.Country, @Model.EndAddress.City, @Model.EndAddress.Street @Model.EndAddress.HouseNumber</td>
+<td>@Model.OrderWeight kgs</td>
+
+@if(Model.TotalCost == 0)
+{
+    <td>Waiting for estimate</td>
+}
+else
+{
+    <td>@Model.TotalCost €</td>
+}
+
+
+@if (!Model.IsCompleted)
+{
+    if (Model.IsConfirmed)
+    {
+        <td>Confirmed</td>
+        if (Model.IsPaid)
+        {
+            <td>Completed</td>
+        }
+        else
+        {
+            <td>Waiting for payment</td>
+        }
+    }
+    else
+    {
+        <td>Waiting for confirmation</td>
+        <td>Waiting for estimate</td>
+    }
+}
+else
+{
+    <td>Completed</td>
+    if (Model.IsPaid)
+    {
+        <td>Completed</td>
+    }
+    else
+    {
+        <td>Waiting for payment</td>
+    }
+}
+
+

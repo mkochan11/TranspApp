@@ -45,7 +45,10 @@ namespace Web.Services.User
             var vehicleTypes = await _vehicleTypeRepository.ListAsync();
 
             var items = vehicleTypes
-                .Select(type => new SelectListItem() { Value = type.Id.ToString(), Text = type.Type })
+                .Select(type => new SelectListItem() { 
+                    Value = type.Id.ToString(), 
+                    Text = type.Type 
+                })
                 .OrderBy(b => b.Value)
                 .ToList();
 

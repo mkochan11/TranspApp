@@ -61,7 +61,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.EmployeeAggregate.EmployeeActivity", b =>
@@ -90,7 +90,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("EmployeeActivities", (string)null);
+                    b.ToTable("EmployeeActivities");
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.EmployeeAggregate.EmployeeContract", b =>
@@ -117,7 +117,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("EmployeeContracts", (string)null);
+                    b.ToTable("EmployeeContracts");
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.OrderAggregate.Address", b =>
@@ -150,7 +150,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Addresses", (string)null);
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.OrderAggregate.Order", b =>
@@ -177,6 +177,12 @@ namespace Infrastructure.Migrations
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPaid")
+                        .HasColumnType("bit");
+
                     b.Property<float>("OrderWeight")
                         .HasColumnType("real");
 
@@ -189,8 +195,9 @@ namespace Infrastructure.Migrations
                     b.Property<float>("TotalCost")
                         .HasColumnType("real");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("VehicleId")
                         .HasColumnType("int");
@@ -210,7 +217,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("VehicleTypeId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.VehicleAggregate.Vehicle", b =>
@@ -249,7 +256,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("VehicleTypeId");
 
-                    b.ToTable("Vehicles", (string)null);
+                    b.ToTable("Vehicles");
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.VehicleAggregate.VehicleActivity", b =>
@@ -278,7 +285,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("VehicleActivities", (string)null);
+                    b.ToTable("VehicleActivities");
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.VehicleAggregate.VehicleType", b =>
@@ -298,7 +305,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("VehicleTypes", (string)null);
+                    b.ToTable("VehicleTypes");
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.EmployeeAggregate.EmployeeActivity", b =>

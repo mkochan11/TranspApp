@@ -176,6 +176,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Order/MyOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJcTXlPcmRlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Order/OrderConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJcT3JkZXJDb25maXJtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Order/_order.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJcX29yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Order/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kocha/source/repos/TranspApp/TranspApp/Web/Pages/Pricing/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpY2luZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

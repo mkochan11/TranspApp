@@ -23,8 +23,7 @@ namespace Web.Pages.Admin.Manage.Employees
 
         public RedirectToPageResult OnGetCreateAccount(int id)
         {
-            TempData["EmployeeId"] = id;
-            return RedirectToPage("./CreateAccount");
+            return RedirectToPage("./CreateAccount", new { id});
         }
 
         public RedirectToPageResult OnGetDetails(int id)

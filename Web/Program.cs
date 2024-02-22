@@ -37,6 +37,11 @@ builder.Services.AddAuthorization(options =>
             policy.RequireAuthenticatedUser()
                 .RequireClaim("IsAdmin", bool.TrueString)));
 
+builder.Services.AddAuthorization(options =>
+        options.AddPolicy("User", policy =>
+            policy.RequireAuthenticatedUser()
+                .RequireClaim("IsAdmin", bool.FalseString)));
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
