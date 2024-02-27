@@ -47,17 +47,17 @@
                         </td>
 
                 </tr>
-                var details = new ViewModels.Admin.Manage.Fleet.DetailedItemViewModel();
+
                 foreach (var detailedVehicle in Model.FleetModel.DetailedVehicles)
                 {
                     if (vehicle.Id == detailedVehicle.Id){
-                        details = detailedVehicle;
+                        <tr class="collapse out" id="collapseDetails_@i">
+                            <partial name="_vehicleDetails" for="@detailedVehicle">
+                        </tr>
                         break;
                     }
                 }
-                <tr class="collapse out" id="collapseDetails_@i">
-                    <partial name="_vehicleDetails" for="@details">
-                </tr>
+                
 
                 
                 i++;
