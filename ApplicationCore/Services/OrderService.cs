@@ -38,5 +38,16 @@ namespace ApplicationCore.Services
             Order? order = await _orderRepository.GetByIdAsync(Id);
             return order == null ? false : true;
         }
+
+        public async Task<Order?> DeleteOrder(int Id)
+        {
+            Order? order = await _orderRepository.GetByIdAsync(Id);
+            if (order != null)
+            {
+                await _orderRepository.DeleteAsync(order);
+                return order;
+            }
+            return null;
+        }
     }
 }

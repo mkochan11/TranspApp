@@ -14,5 +14,6 @@ namespace ApplicationCore.Interfaces
         Task<Address> CreateAddress(string country, string city, string postalCode, string street, string houseNumber);
         Task<Order> CreateOrder(string username, int startAddressId, int destAddressId, float weight, DateTime date);
         Task<bool> CheckIfOrderExists(int Id);
+        Task<Order?> DeleteOrder(int Id);
     }
 }
