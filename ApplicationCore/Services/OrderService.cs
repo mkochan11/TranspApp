@@ -44,7 +44,12 @@ namespace ApplicationCore.Services
             Order? order = await _orderRepository.GetByIdAsync(Id);
             if (order != null)
             {
+                Address? startAddress = await _addressRepository.GetByIdAsync(order.StartAddressId);
+                Address? endAddress = await _addressRepository.GetByIdAsync(order.EndAddressId);
                 await _orderRepository.DeleteAsync(order);
+                await _addressRepository.DeleteAsync(startAddress);
+                await _addressRepository.DeleteAsync(endAddress);
+                
                 return order;
             }
             return null;
