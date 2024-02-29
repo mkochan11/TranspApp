@@ -29,9 +29,34 @@
                     <th scope="row">@i</th>
                     <partial name="_order" for="@order" />
                     <td>
-                        <a asp-page-handler="Details" asp-route-id="@order.Id">See details</a>
+                        <button class="btn btn-info" data-bs-toggle="collapse" data-bs-target="#collapseDetails_@i">Details</button>
+                        @if (!order.IsConfirmed)
+                        {
+                            <form method="post" asp-page-handler="Cancel" asp-route-id="@order.Id">
+                                <button class="btn btn-danger">Cancel</button>
+                            </form>
+                        }else{
+                            if (order.TotalCost != 0)
+                            {
+                                <form method="post" asp-page-handler="Pay" asp-route-id="@order.Id">
+                                    <button class="btn btn-success">Pay</button>
+                                </form>
+                            }
+                        }
                     </td>
                 </tr>
+
+                foreach (var orderDetails in Model.OrdersVM.OrdersDetails)
+                {
+                    if (order.Id == orderDetails.Id)
+                    {
+                        <tr class="collapse out" id="collapseDetails_@i">
+                            <partial name="_orderDetails" for="@orderDetails">
+                        </tr>
+                        break;
+                    }
+                }
+
                 i++;
             }
         </tbody>

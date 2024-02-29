@@ -1,8 +1,8 @@
 ﻿@using Web.ViewModels.User
 @model MyOrdersItemViewModel
 
-<td>@Model.ExecutionDate.Date</td>
-<td>@Model.PlacementTime.Date</td>
+<td>@Model.ExecutionDate.Date.ToShortDateString()</td>
+<td>@Model.PlacementTime.Date.ToShortDateString()</td>
 <td>@Model.StartAddress.Country, @Model.StartAddress.City, @Model.StartAddress.Street @Model.StartAddress.HouseNumber -> @Model.EndAddress.Country, @Model.EndAddress.City, @Model.EndAddress.Street @Model.EndAddress.HouseNumber</td>
 <td>@Model.OrderWeight kgs</td>
 
