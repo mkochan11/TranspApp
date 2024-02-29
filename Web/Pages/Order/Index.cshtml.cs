@@ -96,10 +96,13 @@ namespace Web.Pages.Order
                     Guard.Against.Null(Request.HttpContext.User.Identity.Name, nameof(Request.HttpContext.User.Identity.Name));
                     userName = Request.HttpContext.User.Identity.Name;
                 }
-                var Order = _orderService.CreateOrder(userName, StartingAddress.Id, DestinationAddress.Id, InputOrder.Weight, InputOrder.Date);
 
+                var newOrder = _orderService.CreateOrder(userName, StartingAddress.Id, DestinationAddress.Id, InputOrder.Weight, InputOrder.Date);
 
-                return RedirectToPage("./OrderConfirmation");
+                var res = _orderService.CheckIfOrderExists(newOrder.Result.Id).Result;
+
+                if (res) return RedirectToPage("./OrderConfirmation"); else return RedirectToPage("./OrderError");
+
             }
         }
     }

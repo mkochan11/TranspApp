@@ -25,7 +25,7 @@
                     <div class="col-auto">
                             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                             <div class="form-floating mb-3">
-                                <input asp-for="InputOrder.Date" class="form-control" type="date" aria-required="true"  placeholder=""/>
+                            <input asp-for="InputOrder.Date" class="form-control" type="date" aria-required="true" min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")" placeholder="" />
                                 <label asp-for="InputOrder.Date">Date</label>
                                 <span asp-validation-for="InputOrder.Date" class="text-danger"></span>
                             </div>

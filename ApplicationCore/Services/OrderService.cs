@@ -32,5 +32,11 @@ namespace ApplicationCore.Services
             await _orderRepository.AddAsync(Order);
             return Order;
         }
+
+        public async Task<bool> CheckIfOrderExists(int Id)
+        {
+            Order? order = await _orderRepository.GetByIdAsync(Id);
+            return order == null ? false : true;
+        }
     }
 }
