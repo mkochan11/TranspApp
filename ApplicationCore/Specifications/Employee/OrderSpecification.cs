@@ -15,4 +15,12 @@ namespace ApplicationCore.Specifications.Employee
             Query.Where(x => x.UserName == UserName).AsSplitQuery();
         }
     }
+
+    public class FindUnconfirmedOrderItems : SingleResultSpecification<Order>
+    {
+        public FindUnconfirmedOrderItems()
+        {
+            Query.Where(x => x.IsConfirmed == false).AsSplitQuery();
+        }
+    }
 }

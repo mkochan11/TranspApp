@@ -15,5 +15,6 @@ namespace ApplicationCore.Interfaces
         Task<Order> CreateOrder(string username, int startAddressId, int destAddressId, float weight, DateTime date);
         Task<bool> CheckIfOrderExists(int Id);
         Task<Order?> DeleteOrder(int Id);
+        Task<int> CountTotalUnconfirmedOrderItems();
     }
 }

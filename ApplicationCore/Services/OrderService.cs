@@ -1,5 +1,6 @@
 ﻿using ApplicationCore.Entities.OrderAggregate;
 using ApplicationCore.Interfaces;
+using ApplicationCore.Specifications.Employee;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,14 @@ namespace ApplicationCore.Services
                 return order;
             }
             return null;
+        }
+
+        public async Task<int> CountTotalUnconfirmedOrderItems()
+        {
+            var _orderSpec = new FindUnconfirmedOrderItems();
+            var orders = await _orderRepository.ListAsync(_orderSpec);
+
+            return orders.Count;
         }
     }
 }
