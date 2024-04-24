@@ -1,2 +1,5 @@
 #Ignore temporary files in the obj/ folder
 **/obj/
+
+#Ignore files in the bin/ folder
+**/bin/
