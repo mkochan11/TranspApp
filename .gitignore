@@ -1,0 +1,2 @@
+#Ignore temporary files in the obj/ folder
+**/obj/
